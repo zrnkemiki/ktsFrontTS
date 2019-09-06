@@ -8,7 +8,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 const routes: Routes = [
 { path: 'login', component: LoginComponent},
 { path: 'registration', component: RegistrationComponent},
-{ path: 'homepage', component: HomepageComponent}
+{ path: 'homepage', component: HomepageComponent},
+{path: '', redirectTo: '/homepage', pathMatch: 'full'}
 ];
 
 @NgModule({
