@@ -10,19 +10,25 @@ import { GenericService } from './service/generic.service';
 import { ToastrModule } from 'ngx-toastr';
 import { RegistrationComponent } from './registration/registration.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { VehicleSEDComponent } from './vehicle-sed/vehicle-sed.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    HomepageComponent
+    HomepageComponent,
+    AddVehicleComponent,
+    VehicleSEDComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,    
     FormsModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot({preventDuplicates: true})
   ],
   providers: [

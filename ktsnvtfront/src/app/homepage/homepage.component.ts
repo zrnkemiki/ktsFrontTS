@@ -21,4 +21,11 @@ export class HomepageComponent implements OnInit {
     this.router.navigate(["/login"]);
   }
 
+  dodajVozilo(){
+    this.router.navigate(["/add-vehicle"]);
+  }
+
+  svaVozila(){
+    this.router.navigate(["/vehicleSED"]);
+  }
 }

@@ -1,0 +1,30 @@
+<body>
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form class="form" action="" method="post">
+                            <h3 class="text-center text-info">New Vehicle</h3>
+                            <div class="form-group">
+                                <label for="line_id" class="text-info">Linija ID:</label><br>
+                                <input type="text" name="line_id" class="form-control"  [(ngModel)]="this.vehicle.linijaString">
+                            </div>
+                            <div class="form-group">
+                                <label for="vehicleType" class="text-info">Tip vozila:</label><br>
+                                <input type="text" id="vehicleType" name="vehicleType" placeholder="" class="form-control" [(ngModel)]="this.vehicle.tip">
+                            </div>
+                        
+                            <div class="form-group">
+                                <button (click)="addVehicle()"  class="btn btn-primary">Save vehicle</button> 
+                            </div>                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+

@@ -1,0 +1,49 @@
+<body>
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title"></div>
+    <table  class="table table-bordered table-hover table-dark">
+      <thead>
+        <tr>
+          <!--<th *ngIf="rentaCarAdmin">ID</th> -->
+          <th>ID vozila</th>
+          <th>ID Trenutno stajaliste</th>
+          <th>ID linije</th>
+          <th>Tip vozila</th>
+          <th style="width: 15%">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+    
+        <tr *ngFor="let vehicle of vehicles; let i = index">
+          <!-- <td *ngIf="rentaCarAdmin"> -->
+           <td> 
+            {{vehicle.id}}.
+          </td>
+          <td>
+            {{vehicle.idTrenutnoStajaliste}}
+          </td>
+          <td>
+            {{vehicle.linijaString}}
+          </td>
+          <td>
+            {{vehicle.tip}}
+          </td>
+          <td>
+            <button (click)='deleteVehicle(vehicle.id)'  type="button" class="btn btn-danger">Delete</button>
+            <button type="button" (click)='editVehicle(vehicle.id)'  class="btn btn-warning">Edit</button>
+        </td>
+        </tr>
+    
+      </tbody>
+    </table>
+            <div class="clearfix">
+            </div>
+        </div>
+        
+    </div>   
+    
+    
+    </body>
+    
+    
