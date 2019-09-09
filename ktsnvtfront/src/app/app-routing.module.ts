@@ -5,6 +5,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
 import { VehicleSEDComponent } from './vehicle-sed/vehicle-sed.component';
+import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
 { path: '', redirectTo: '/homepage', pathMatch: 'full'},
 { path: 'add-vehicle', component: AddVehicleComponent},
 { path: 'edit-vehicle/:id', component: AddVehicleComponent},
-{ path: 'vehicleSED', component: VehicleSEDComponent}
+{ path: 'vehicleSED', component: VehicleSEDComponent},
+{ path: 'register-employee', component: RegisterEmployeeComponent}
 ];
 
 @NgModule({

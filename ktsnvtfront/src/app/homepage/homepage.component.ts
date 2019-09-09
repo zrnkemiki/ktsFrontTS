@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-homepage',
@@ -13,19 +13,23 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
   }
 
-  register(){
+  register() {
     this.router.navigate(["/registration"]);
   }
 
-  login(){
+  login() {
     this.router.navigate(["/login"]);
   }
 
-  dodajVozilo(){
+  dodajVozilo() {
     this.router.navigate(["/add-vehicle"]);
   }
 
-  svaVozila(){
+  svaVozila() {
     this.router.navigate(["/vehicleSED"]);
+  }
+
+  dodajZaposlenog() {
+    this.router.navigate(["/register-employee"]);
   }
 }

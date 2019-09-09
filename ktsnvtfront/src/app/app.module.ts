@@ -13,6 +13,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VehicleSEDComponent } from './vehicle-sed/vehicle-sed.component';
+import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { VehicleSEDComponent } from './vehicle-sed/vehicle-sed.component';
     RegistrationComponent,
     HomepageComponent,
     AddVehicleComponent,
-    VehicleSEDComponent
+    VehicleSEDComponent,
+    RegisterEmployeeComponent
   ],
   imports: [
     BrowserModule,
