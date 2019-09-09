@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-homepage',
@@ -8,10 +9,17 @@ import { Router } from '@angular/router'
 })
 export class HomepageComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  private currentUserEmail: string;
+  private currentUserUsername: string;
 
-  ngOnInit() {
-  }
+  constructor(private router: Router, private loginService : LoginService) { }
+
+  ngOnInit() {if(localStorage.getItem('currentUser')!= null){
+    const currentUser: any = this.loginService.currentUserValue;
+
+    this.currentUserUsername = currentUser.username} 
+    
+}
 
   register() {
     this.router.navigate(["/registration"]);
@@ -19,6 +27,11 @@ export class HomepageComponent implements OnInit {
 
   login() {
     this.router.navigate(["/login"]);
+  }
+
+  logout(){
+    this.loginService.logout();
+    location.reload()
   }
 
   dodajVozilo() {

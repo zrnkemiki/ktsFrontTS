@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       if(result)
       { 
         const currentUser: any = this.loginService.currentUserValue;
-        this.goToPageOfLoggedUser(currentUser);
+        this.router.navigate(['/homepage'])
       }
       else {
         //this.toastr.error('error logging');
@@ -41,28 +41,5 @@ export class LoginComponent implements OnInit {
 
     
   }
-
-  goToPageOfLoggedUser(currentUser: any) {
-    const role = currentUser.userType
-
-    if (role === 'SYS_ADMIN') {
-      this.router.navigate(['/add-admin']);
-    }
-    else if (role === 'RENTACAR_ADMIN') {
-      this.router.navigate(['/vehiclesSED']);
-    }
-    else if (role === 'HOTEL_ADMIN') {
-      this.router.navigate(['/hotel-admin']);
-    }
-    else if (role === 'AIRLINE_ADMIN') {
-      this.router.navigate(['/hotel']);
-    }
-    else if (role == 'REGISTERED_USER'){
-        this.router.navigate(['/homepage']);
-    }
-    else {
-      this.toastr.error('Unknown user type!');
-    }
-}
 
 }
