@@ -14,6 +14,8 @@ import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VehicleSEDComponent } from './vehicle-sed/vehicle-sed.component';
 import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
+import { StopSEDComponent } from './stop-sed/stop-sed.component';
+import { AddStopComponent } from './add-stop/add-stop.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { RegisterEmployeeComponent } from './register-employee/register-employee
     HomepageComponent,
     AddVehicleComponent,
     VehicleSEDComponent,
-    RegisterEmployeeComponent
+    RegisterEmployeeComponent,
+    StopSEDComponent,
+    AddStopComponent
   ],
   imports: [
     BrowserModule,
