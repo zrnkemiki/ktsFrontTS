@@ -19,6 +19,10 @@ export class VehicleSEDComponent implements OnInit {
 
   public vehicles: Vehicle[];
 
+  public aplicationAdmin: User;  
+  public registeredUser: User;
+
+
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -29,6 +33,11 @@ export class VehicleSEDComponent implements OnInit {
   }
 
   ngOnInit() {
+    const currentUser: User = this.loginService.currentUserValue;
+    if(currentUser == null){
+      alert("Mozete pregledati vozila ali se morate registrovati odnosno ulogovati kako bi rezervisali.")
+    }
+
     this.vehicles = [];
 
     if (this.router.url === "/vehicleSED") {
