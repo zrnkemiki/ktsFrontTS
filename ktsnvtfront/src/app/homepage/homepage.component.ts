@@ -60,6 +60,14 @@ export class HomepageComponent implements OnInit {
     this.router.navigate(["/vehicleSED"]);
   }
 
+  dodajStajaliste() {
+    this.router.navigate(["/add-stop"]);
+  }
+
+  svaStajalista() {
+    this.router.navigate(["/stopSED"]);
+  }
+
   dodajZaposlenog() {
     this.router.navigate(["/register-employee"]);
   }

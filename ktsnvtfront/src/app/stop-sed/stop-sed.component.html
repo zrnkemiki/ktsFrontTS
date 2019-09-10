@@ -1,0 +1,43 @@
+<body>
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title"></div>
+    <table  class="table table-bordered table-hover table-dark">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Naziv</th>
+          <th>Lokacija</th>
+          <th>Adresa</th>
+          <th style="width: 15%">Akcije</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let stop of stops; let i = index">
+           <td> 
+            {{stop.id}}
+          </td>
+          <td>
+            {{stop.naziv}}
+          </td>
+          <td>
+            {{stop.lokacijaX}} , {{stop.lokacijaY}}
+          </td>
+          <td>
+            {{stop.adresa}}
+          </td>
+          <td>
+            <button (click)='deleteStop(stop.id)'  type="button" class="btn btn-danger">Obriši</button>
+            <button type="button" (click)='editStop(stop.id)' class="btn btn-warning">Izmeni</button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="form-group" id="button">
+      <button id="return" (click)="returnHome()()" class="btn btn-success">Početna stranica</button> 
+    </div>
+  </div>   
+</div>
+</body>

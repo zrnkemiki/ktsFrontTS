@@ -16,7 +16,7 @@
   <div class="jumbotron">
     <div class="container text-center">
       <h1>Gradski Prevoz</h1>
-      <p>Linije, Red voznje & Karte</p>
+      <p>Linije, Red vožnje & Karte</p>
     </div>
   </div>
 
@@ -31,6 +31,10 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Linije</a></li>
+          <li><a href="#">Red vožnje</a></li>
+          <li><a href="#">Karta</a></li>
           <button type="button" class="btn btn-primary">Red voznje</button>
           <button type="button" *ngIf="applicationEmployee" (click)="dodajVozilo()" class="btn btn-primary">Dodaj vozilo</button>
           <button type="button" *ngIf="applicationEmployee" (click)="svaVozila()" class="btn btn-primary">Sva vozila</button>
