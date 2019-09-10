@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Stop } from '../model/stop';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 
 @Injectable({
@@ -73,7 +73,7 @@ export class StopService {
     this.http.put<Stop>(this.stopUrl, stop)
     .subscribe(
       editedStop=> {
-        for (var i = 0; i < this.stops.length; i++) {;
+        for (var i = 0; i < this.stops.length; i++) {
           if (editedStop.id === this.stops[i].id) {
             this.stops[i] = editedStop;
             this.stopsSource.next(this.stops);

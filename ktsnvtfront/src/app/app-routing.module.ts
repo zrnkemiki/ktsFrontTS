@@ -7,6 +7,8 @@ import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
 import { VehicleSEDComponent } from './vehicle-sed/vehicle-sed.component';
 import { AddStopComponent } from './add-stop/add-stop.component';
 import { StopSEDComponent } from './stop-sed/stop-sed.component';
+import { AddDepartureComponent } from './add-departure/add-departure.component';
+import { DepartureSEDComponent } from './departure-sed/departure-sed.component';
 import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
 
 
@@ -21,6 +23,9 @@ const routes: Routes = [
   { path: 'add-stop', component: AddStopComponent},
   { path: 'edit-stop/:id', component: AddStopComponent},
   { path: 'stopSED', component: StopSEDComponent},
+  { path: 'add-departure', component: AddDepartureComponent},
+  { path: 'edit-departure/:id', component: AddDepartureComponent},
+  { path: 'departureSED', component: DepartureSEDComponent},
   { path: 'register-employee', component: RegisterEmployeeComponent}
 ];
 

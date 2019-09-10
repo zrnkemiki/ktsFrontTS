@@ -35,9 +35,13 @@
           <li><a href="#">Linije</a></li>
           <li><a href="#">Red vožnje</a></li>
           <li><a href="#">Karta</a></li>
-          <button type="button" class="btn btn-primary">Red voznje</button>
+          <button type="button" class="btn btn-primary">Red vožnje</button>
           <button type="button" *ngIf="applicationEmployee" (click)="dodajVozilo()" class="btn btn-primary">Dodaj vozilo</button>
           <button type="button" *ngIf="applicationEmployee" (click)="svaVozila()" class="btn btn-primary">Sva vozila</button>
+          <button type="button" *ngIf="applicationEmployee" (click)="dodajStajaliste()" class="btn btn-primary">Dodaj stajalište</button>
+          <button type="button" *ngIf="applicationEmployee" (click)="svaStajalista()" class="btn btn-primary">Sva stajališta</button>
+          <button type="button" *ngIf="applicationEmployee" (click)="dodajPolazak()" class="btn btn-primary">Dodaj polazak</button>
+          <button type="button" *ngIf="applicationEmployee" (click)="sviPolasci()" class="btn btn-primary">Svi polasci</button>
           <button type="button" *ngIf="applicationAdministrator"(click)="dodajZaposlenog()" class="btn btn-primary">Dodaj zaposlenog</button>
         </ul>
         <ul class="nav navbar-nav navbar-right">

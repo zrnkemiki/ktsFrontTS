@@ -16,6 +16,8 @@ import { VehicleSEDComponent } from './vehicle-sed/vehicle-sed.component';
 import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
 import { StopSEDComponent } from './stop-sed/stop-sed.component';
 import { AddStopComponent } from './add-stop/add-stop.component';
+import { AddDepartureComponent } from './add-departure/add-departure.component';
+import { DepartureSEDComponent } from './departure-sed/departure-sed.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { AddStopComponent } from './add-stop/add-stop.component';
     VehicleSEDComponent,
     RegisterEmployeeComponent,
     StopSEDComponent,
-    AddStopComponent
+    AddStopComponent,
+    AddDepartureComponent,
+    DepartureSEDComponent
   ],
   imports: [
     BrowserModule,
