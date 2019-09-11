@@ -9,6 +9,8 @@ import { AddStopComponent } from './add-stop/add-stop.component';
 import { StopSEDComponent } from './stop-sed/stop-sed.component';
 import { AddDepartureComponent } from './add-departure/add-departure.component';
 import { DepartureSEDComponent } from './departure-sed/departure-sed.component';
+import { AddLineComponent } from './add-line/add-line.component';
+import { LineSEDComponent } from './line-sed/line-sed.component';
 import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
 import { AddPriceListComponent } from './add-price-list/add-price-list.component';
 import { PriceListSEDComponent } from './price-list-sed/price-list-sed.component';
@@ -28,6 +30,9 @@ const routes: Routes = [
   { path: 'add-departure', component: AddDepartureComponent },
   { path: 'edit-departure/:id', component: AddDepartureComponent },
   { path: 'departureSED', component: DepartureSEDComponent },
+  { path: 'add-line', component: AddLineComponent },
+  { path: 'edit-line/:id', component: AddLineComponent },
+  { path: 'lineSED', component: LineSEDComponent },
   { path: 'register-employee', component: RegisterEmployeeComponent },
   { path: 'add-priceList', component: AddPriceListComponent },
   { path: 'priceListSED', component: PriceListSEDComponent }

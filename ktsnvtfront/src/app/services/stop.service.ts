@@ -27,6 +27,10 @@ export class StopService {
       );
   }
 
+  getAll() {
+    return this.http.get<Stop[]>(this.stopUrl);
+  }
+
   addStop(stop: Stop) {
     this.http.post<Stop>(this.stopUrl, stop)
       .subscribe(

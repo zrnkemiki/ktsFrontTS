@@ -27,6 +27,10 @@ export class DepartureService {
       );
   }
 
+  getAll() {
+    return this.http.get<Departure[]>(this.departureUrl);
+  }
+
   addDeparture(departure: Departure) {
     this.http.post<Departure>(this.departureUrl, departure)
       .subscribe(

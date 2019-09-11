@@ -20,6 +20,8 @@ import { AddDepartureComponent } from './add-departure/add-departure.component';
 import { DepartureSEDComponent } from './departure-sed/departure-sed.component';
 import { AddPriceListComponent } from './add-price-list/add-price-list.component';
 import { PriceListSEDComponent } from './price-list-sed/price-list-sed.component';
+import { AddLineComponent } from './add-line/add-line.component';
+import { LineSEDComponent } from './line-sed/line-sed.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { PriceListSEDComponent } from './price-list-sed/price-list-sed.component
     AddDepartureComponent,
     DepartureSEDComponent,
     AddPriceListComponent,
-    PriceListSEDComponent
+    PriceListSEDComponent,
+    AddLineComponent,
+    LineSEDComponent
   ],
   imports: [
     BrowserModule,
