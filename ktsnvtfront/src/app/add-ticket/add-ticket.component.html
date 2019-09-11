@@ -1,0 +1,36 @@
+<body>
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-7">
+                        <form class="form" action="" method="post">
+                            <h3 class="text-center text-info">Nova karta</h3>
+
+                            <div class="form-group">
+                                <label for="dan" class="text-info">Tip karte:</label><br>
+                                <input type="text" name="tip karte" [(ngModel)]="this.ticket.tip" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dan" class="text-info">Datum od:</label><br>
+                                <input type="date" name="datumod" [(ngModel)]="this.ticket.vaziOd" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dan" class="text-info">Datum do:</label><br>
+                                <input type="date" name="datumdo" [(ngModel)]="this.ticket.vaziDo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dan" class="text-info">Cena:</label><br>
+                                <input type="text" name="cena karte" [(ngModel)]="this.ticket.cena" required>
+                            </div>
+                            <div class="form-group" id="buttons">
+                                <button (click)="addTicket()" class="btn btn-primary">Sačuvaj</button>
+                                <button (click)="returnHome()" class="btn btn-danger">Otkaži</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

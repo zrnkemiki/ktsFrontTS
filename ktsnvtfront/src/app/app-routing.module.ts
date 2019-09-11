@@ -12,6 +12,7 @@ import { DepartureSEDComponent } from './departure-sed/departure-sed.component';
 import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
 import { AddPriceListComponent } from './add-price-list/add-price-list.component';
 import { PriceListSEDComponent } from './price-list-sed/price-list-sed.component';
+import { AddTicketComponent } from './add-ticket/add-ticket.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'departureSED', component: DepartureSEDComponent },
   { path: 'register-employee', component: RegisterEmployeeComponent },
   { path: 'add-priceList', component: AddPriceListComponent },
-  { path: 'priceListSED', component: PriceListSEDComponent }
+  { path: 'priceListSED', component: PriceListSEDComponent },
+  { path: 'add-ticket', component: AddTicketComponent}
 ];
 
 @NgModule({
