@@ -1,0 +1,53 @@
+<body>
+    <div class="container">
+        <div class="table-wrapper">
+            <table class="table table-bordered table-hover table-dark">
+                <thead>
+                    <tr>
+                        <!--<th *ngIf="rentaCarAdmin">ID</th> -->
+                        <th>ID cenovnik</th>
+                        <th>Aktivan</th>
+                        <th>Datum od</th>
+                        <th>Datum do</th>
+                        <th>Tip karte</th>
+                        <th>Cena</th>
+                        <th style="width: 15%">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let priceList of priceLists; let i = index">
+                        <!-- <td *ngIf="rentaCarAdmin"> -->
+                        <td>
+                            {{priceList.id}}.
+                        </td>
+                        <td>
+                            {{priceList.aktivan}}.
+                        </td>
+                        <td>
+                            {{priceList.datumOd | date}}
+                        </td>
+                        <td>
+                            {{priceList.datumDo | date}}
+                        </td>
+                        <td>
+                            {{priceList.tipKarte}}
+                        </td>
+                        <td>
+                            {{priceList.cena}}
+                        </td>
+                        <td>
+                            <button (click)='deletePriceList(priceList.id)' type="button"
+                                class="btn btn-danger">Deactivate</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="clearfix">
+            </div>
+        </div>
+
+    </div>
+
+
+</body>

@@ -19,67 +19,67 @@ export class StopService {
 
   findAll() {
     this.http.get<Stop[]>(this.stopUrl)
-    .subscribe(
-      stops => {
-        this.stops = stops;
-        this.stopsSource.next(this.stops);
-      }
-    );
+      .subscribe(
+        stops => {
+          this.stops = stops;
+          this.stopsSource.next(this.stops);
+        }
+      );
   }
 
   addStop(stop: Stop) {
     this.http.post<Stop>(this.stopUrl, stop)
-    .subscribe(
-      addedStop => {
-        this.stops.push(addedStop);
-        this.stopsSource.next(this.stops);
-        alert("Dodato stajalište " + stop.naziv + " na adresi " + stop.adresa + ".");
-      }
-    )
+      .subscribe(
+        addedStop => {
+          this.stops.push(addedStop);
+          this.stopsSource.next(this.stops);
+          alert("Dodato stajalište " + stop.naziv + " na adresi " + stop.adresa + ".");
+        }
+      )
   }
 
   getStop(id) {
     return this.http.get<Stop>(this.stopUrl + "/" + id)
-     .pipe(tap(
-       stop => {
-         for (var i = 0; i < this.stops.length; i++) {
-           if (stop.id === this.stops[i].id) {
-             this.stops[i] = stop;
-             this.stopsSource.next(this.stops);
-             return stop;
-           }
-         }
-       })
-     )
-   }
+      .pipe(tap(
+        stop => {
+          for (var i = 0; i < this.stops.length; i++) {
+            if (stop.id === this.stops[i].id) {
+              this.stops[i] = stop;
+              this.stopsSource.next(this.stops);
+              return stop;
+            }
+          }
+        })
+      )
+  }
 
   deleteStop(id) {
     this.http.delete<Stop>(this.stopUrl + "/" + id)
-    .subscribe(
-      response => {
-        for (var i = 0; i < this.stops.length; i++) {
-          if (id === this.stops[i].id) {
-            this.stops.splice(i, 1);
-            this.stopsSource.next(this.stops);
-            return;
+      .subscribe(
+        response => {
+          for (var i = 0; i < this.stops.length; i++) {
+            if (id === this.stops[i].id) {
+              this.stops.splice(i, 1);
+              this.stopsSource.next(this.stops);
+              return;
+            }
           }
-        }        
-      },      
-     error => {alert(error.message)}
-    )
+        },
+        error => { alert(error.message) }
+      )
   }
 
   editStop(stop: Stop) {
     this.http.put<Stop>(this.stopUrl, stop)
-    .subscribe(
-      editedStop=> {
-        for (var i = 0; i < this.stops.length; i++) {
-          if (editedStop.id === this.stops[i].id) {
-            this.stops[i] = editedStop;
-            this.stopsSource.next(this.stops);
-            return;
+      .subscribe(
+        editedStop => {
+          for (var i = 0; i < this.stops.length; i++) {
+            if (editedStop.id === this.stops[i].id) {
+              this.stops[i] = editedStop;
+              this.stopsSource.next(this.stops);
+              return;
+            }
           }
-        }
-    });
+        });
   }
 }

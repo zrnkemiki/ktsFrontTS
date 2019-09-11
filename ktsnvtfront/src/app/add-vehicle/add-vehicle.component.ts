@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Vehicle } from '../model/vehicle';
 import { ToastrService } from 'ngx-toastr';
-import { isNumber } from 'util';
-import { Router, RouterLink, ActivatedRoute } from '@angular/router'
+import { Router } from '@angular/router'
+import { ActivatedRoute } from '@angular/router'
 import { VehicleService } from '../services/vehicle.service';
 
 @Component({
@@ -15,35 +14,35 @@ export class AddVehicleComponent implements OnInit {
   public vehicle: Vehicle;
 
   constructor(
-    private vehicleService : VehicleService,
-    private toastr: ToastrService, 
+    private vehicleService: VehicleService,
+    private toastr: ToastrService,
     private router: Router,
     private route: ActivatedRoute
-    ) {
-    this.vehicle = { id:"", idTrenutnoStajaliste:"", linijaString: "", tip:"" };
+  ) {
+    this.vehicle = { id: "", idTrenutnoStajaliste: "", linijaString: "", tip: "" };
   }
 
   ngOnInit() {
-     if(this.router.url != "/add-vehicle"){
+    if (this.router.url != "/add-vehicle") {
       this.getEditVehicle();
-     }
+    }
   }
 
-  getEditVehicle(){
+  getEditVehicle() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.vehicleService.getVehicle(id).subscribe(vehicle => this.vehicle = vehicle);
   }
 
   addVehicle() {
     if (this.vehicle.tip !== '') {
-      if(this.router.url != "/add-vehicle"){
+      if (this.router.url != "/add-vehicle") {
         this.vehicleService.editVehicle(this.vehicle);
       }
-      else{
+      else {
         this.vehicleService.addVehicle(this.vehicle);
       }
       this.router.navigate(["/homepage"]);
-      
+
     }
     else {
       this.toastr.error('Morate uneti tip vozila!');

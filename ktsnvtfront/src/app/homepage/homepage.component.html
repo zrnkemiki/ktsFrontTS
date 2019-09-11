@@ -2,81 +2,77 @@
 <html lang="en">
 
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 </head>
 
 <body>
 
-  <div class="jumbotron">
-    <div class="container text-center">
-      <h1>Gradski Prevoz</h1>
-      <p>Linije, Red vožnje & Karte</p>
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h1>Gradski Prevoz</h1>
+            <p>Linije, Red vožnje & Karte</p>
+        </div>
     </div>
-  </div>
 
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Linije</a></li>
-          <li><a href="#">Red vožnje</a></li>
-          <li><a href="#">Karta</a></li>
-          <button type="button" class="btn btn-primary">Red vožnje</button>
-          <button type="button" *ngIf="applicationEmployee" (click)="dodajVozilo()" class="btn btn-primary">Dodaj vozilo</button>
-          <button type="button" *ngIf="applicationEmployee" (click)="svaVozila()" class="btn btn-primary">Sva vozila</button>
-          <button type="button" *ngIf="applicationEmployee" (click)="dodajStajaliste()" class="btn btn-primary">Dodaj stajalište</button>
-          <button type="button" *ngIf="applicationEmployee" (click)="svaStajalista()" class="btn btn-primary">Sva stajališta</button>
-          <button type="button" *ngIf="applicationEmployee" (click)="dodajPolazak()" class="btn btn-primary">Dodaj polazak</button>
-          <button type="button" *ngIf="applicationEmployee" (click)="sviPolasci()" class="btn btn-primary">Svi polasci</button>
-          <button type="button" *ngIf="applicationAdministrator"(click)="dodajZaposlenog()" class="btn btn-primary">Dodaj zaposlenog</button>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span *ngIf="currentUserEmail" class="glyphicon glyphicon-user"></span> {{currentUserType}} {{currentUserEmail}}</a></li>
-          <button type="button" *ngIf="!currentUserEmail" (click)="register()" class="btn btn-primary">Register</button>
-          <button type="button" *ngIf="!currentUserEmail" (click)="login()" class="btn btn-primary">Login</button>
-          <button type="button" *ngIf="currentUserEmail" (click)="logout()" class="btn btn-primary">Logout</button>
-        </ul>
-      </div>
-    </div>
-  </nav>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <button type="button" class="btn btn-primary">Red vožnje</button>
+                    <button type="button" *ngIf="applicationEmployee" (click)="dodajVozilo()" class="btn btn-primary">Dodaj vozilo</button>
+                    <button type="button" *ngIf="applicationEmployee" (click)="svaVozila()" class="btn btn-primary">Sva vozila</button>
+                    <button type="button" *ngIf="applicationEmployee" (click)="dodajStajaliste()" class="btn btn-primary">Dodaj stajalište</button>
+                    <button type="button" *ngIf="applicationEmployee" (click)="svaStajalista()" class="btn btn-primary">Sva stajališta</button>
+                    <button type="button" *ngIf="applicationEmployee" (click)="dodajPolazak()" class="btn btn-primary">Dodaj polazak</button>
+                    <button type="button" *ngIf="applicationEmployee" (click)="sviPolasci()" class="btn btn-primary">Svi polasci</button>
+                    <button type="button" *ngIf="!applicationEmployee" (click)="dodajCenovnik()" class="btn btn-primary">Dodaj cenovnik</button>
+                    <button type="button" *ngIf="!applicationEmployee" (click)="sviCenovnici()" class="btn btn-primary"> Cenovnici</button>
+                    <button type="button" *ngIf="applicationAdministrator" (click)="dodajZaposlenog()" class="btn btn-primary">Dodaj zaposlenog</button>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span *ngIf="currentUserEmail" class="glyphicon glyphicon-user"></span> {{currentUserType}} {{currentUserEmail}}</a></li>
+                    <button type="button" *ngIf="!currentUserEmail" (click)="register()" class="btn btn-primary">Register</button>
+                    <button type="button" *ngIf="!currentUserEmail" (click)="login()" class="btn btn-primary">Login</button>
+                    <button type="button" *ngIf="currentUserEmail" (click)="logout()" class="btn btn-primary">Logout</button>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 
-  <div class="mapouter">
-    <div class="gmap_canvas"><iframe width="1600" height="500" id="gmap_canvas"
-        src="https://maps.google.com/maps?q=Novi%20Sad&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-        scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.utterlydigital.com/">Utterly
+    <div class="mapouter">
+        <div class="gmap_canvas"><iframe width="1600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Novi%20Sad&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.utterlydigital.com/">Utterly
         Digital</a></div>
-    <style>
-      .mapouter {
-        position: relative;
-        text-align: right;
-        height: 500px;
-        width: 600px;
-      }
+        <style>
+            .mapouter {
+                position: relative;
+                text-align: right;
+                height: 500px;
+                width: 600px;
+            }
+            
+            .gmap_canvas {
+                overflow: hidden;
+                background: none !important;
+                height: 500px;
+                width: 1600px;
+            }
+        </style>
 
-      .gmap_canvas {
-        overflow: hidden;
-        background: none !important;
-        height: 500px;
-        width: 1600px;
-      }
-    </style>
-
-  </div>
+    </div>
 </body>
 
 

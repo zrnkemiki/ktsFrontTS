@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Stop } from '../model/stop';
 import { ToastrService } from 'ngx-toastr';
-import { Router, ActivatedRoute } from '@angular/router'
+import { Router } from '@angular/router'
+import { ActivatedRoute } from '@angular/router'
 import { StopService } from '../services/stop.service';
 
 @Component({
@@ -14,14 +15,14 @@ export class AddStopComponent implements OnInit {
 
   public stop: Stop;
 
-  constructor(private stopService : StopService, private toastr: ToastrService, private router: Router, private route: ActivatedRoute) {
+  constructor(private stopService: StopService, private toastr: ToastrService, private router: Router, private route: ActivatedRoute) {
     this.stop = { id: "", naziv: "", lokacijaX: "", lokacijaY: "", adresa: "" };
   }
 
   ngOnInit() {
     if (this.router.url != "/add-stop") {
       this.getEditStop();
-     }
+    }
   }
 
   allStops() {

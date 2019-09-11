@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Vehicle } from '../model/vehicle';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ToastrService } from 'ngx-toastr';
-import { isNumber } from 'util';
-import { BehaviorSubject } from 'rxjs';
-import { Router, RouterLink, ActivatedRoute } from '@angular/router'
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router'
+import { ActivatedRoute } from '@angular/router'
 import { VehicleService } from '../services/vehicle.service';
 import { LoginService } from '../services/login.service';
-import { User } from '../model/user';;
-//import { disableBindings } from '@angular/core/src/render3';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-vehicle-sed',
@@ -19,7 +16,7 @@ export class VehicleSEDComponent implements OnInit {
 
   public vehicles: Vehicle[];
 
-  public aplicationAdmin: User;  
+  public aplicationAdmin: User;
   public registeredUser: User;
 
 
@@ -34,7 +31,7 @@ export class VehicleSEDComponent implements OnInit {
 
   ngOnInit() {
     const currentUser: User = this.loginService.currentUserValue;
-    if(currentUser == null){
+    if (currentUser == null) {
       alert("Mozete pregledati vozila ali se morate registrovati odnosno ulogovati kako bi rezervisali.")
     }
 
@@ -44,7 +41,7 @@ export class VehicleSEDComponent implements OnInit {
       this.getVehicles();
     }
   }
-  
+
   addVehicle() {
     this.router.navigate(["/add-vehicle"]);
   }

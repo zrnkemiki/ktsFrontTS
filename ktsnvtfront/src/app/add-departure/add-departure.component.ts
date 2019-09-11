@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Departure } from '../model/departure';
 import { ToastrService } from 'ngx-toastr';
-import { Router, ActivatedRoute } from '@angular/router'
+import { Router } from '@angular/router'
+import { ActivatedRoute } from '@angular/router'
 import { DepartureService } from '../services/departure.service';
 
 @Component({
@@ -14,14 +15,14 @@ export class AddDepartureComponent implements OnInit {
 
   public departure: Departure;
 
-  constructor(private departureService : DepartureService, private toastr: ToastrService, private router: Router, private route: ActivatedRoute) {
+  constructor(private departureService: DepartureService, private toastr: ToastrService, private router: Router, private route: ActivatedRoute) {
     this.departure = { id: "", dan: "", vreme: "" };
   }
 
   ngOnInit() {
     if (this.router.url != "/add-departure") {
       this.getEditDeparture();
-     }
+    }
   }
 
   allDepartures() {
