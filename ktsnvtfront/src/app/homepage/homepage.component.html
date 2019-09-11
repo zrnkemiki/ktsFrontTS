@@ -38,6 +38,8 @@
                     <button type="button" *ngIf="applicationEmployee" (click)="svaStajalista()" class="btn btn-primary">Sva stajališta</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="dodajPolazak()" class="btn btn-primary">Dodaj polazak</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="sviPolasci()" class="btn btn-primary">Svi polasci</button>
+                    <button type="button" *ngIf="applicationEmployee" (click)="dodajLiniju()" class="btn btn-primary">Dodaj liniju</button>
+                    <button type="button" *ngIf="applicationEmployee" (click)="sveLinije()" class="btn btn-primary">Sve linije</button>
                     <button type="button" *ngIf="!applicationEmployee" (click)="dodajCenovnik()" class="btn btn-primary">Dodaj cenovnik</button>
                     <button type="button" *ngIf="!applicationEmployee" (click)="sviCenovnici()" class="btn btn-primary"> Cenovnici</button>
                     <button type="button" *ngIf="applicationAdministrator" (click)="dodajZaposlenog()" class="btn btn-primary">Dodaj zaposlenog</button>

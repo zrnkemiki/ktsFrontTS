@@ -1,0 +1,58 @@
+<body>
+        <div id="login">
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-7">
+                            <form class="form" action="" method="post" >
+                                <h3 class="text-center text-info">Nova linija</h3>
+
+                                <div class="form-group">
+                                    <label for="broj" class="text-info">Broj:</label><br>
+                                    <input type="text" name="broj" class="form-control" placeholder="Broj" pattern="[1-9]{1,2}(\D{0,3})" [(ngModel)]="this.line.broj" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="naziv" class="text-info">Naziv:</label><br>
+                                    <input type="text" name="naziv" class="form-control" placeholder="Naziv" [(ngModel)]="this.line.naziv" required>
+                                </div>
+
+                                <!-- TODO namestiti da se klikom na plus dodaje novo polje za unos stajalista i polaska
+                                    i pritom sacuvati prethodno odabrana stajalista i polaske -->
+                                <div class="form-group">
+                                    <label for="stajalista" class="text-info">Stajališta:</label><br>
+                                    <select name="stajalista" class="form-control" *ngFor="let field of stopsFields.fields; let i = index; trackBy: i" [(ngModel)]="this.stopsFields.fields[i]" required>
+                                        <option *ngFor="let stop of this.stops" value="{{stop}}">{{stop.naziv}}</option>
+                                    </select>
+                                    <button (click)="addStopField()" class="btn btn-success">+</button>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="polasci" class="text-info">Polasci:</label><br>
+                                    <select name="polasci" class="form-control" *ngFor="let field of departuresFields.fields; let i = index; trackBy: i" [(ngModel)]="this.departuresFields.fields[i]" required>
+                                        <option *ngFor="let departure of this.departures" value="{{departure}}">{{departure.vreme}} {{departure.dan}}</option>
+                                    </select>
+                                    <button (click)="addDepartureField()" class="btn btn-success">+</button>
+                                </div>
+    
+                                <div class="form-group">
+                                    <label for="tip" class="text-info">Vozilo:</label><br>
+                                    <select name="tip" class="form-control" [(ngModel)]="this.line.tip" required>
+                                        <option value="autobus">Autobus</option>
+                                        <option value="tramvaj">Tramvaj</option>
+                                        <option value="metro">Metro</option>
+                                    </select>
+                                </div>
+                            
+                                <div class="form-group" id="buttons">
+                                    <button (click)="addLine()" class="btn btn-primary">Sačuvaj</button>
+                                    <button (click)="returnHome()" class="btn btn-danger">Otkaži</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    

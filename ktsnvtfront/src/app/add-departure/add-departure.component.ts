@@ -16,7 +16,7 @@ export class AddDepartureComponent implements OnInit {
   public departure: Departure;
 
   constructor(private departureService: DepartureService, private toastr: ToastrService, private router: Router, private route: ActivatedRoute) {
-    this.departure = { id: "", dan: "", vreme: "" };
+    this.departure = { id: "", dan: "Radni dan", vreme: "" };
   }
 
   ngOnInit() {

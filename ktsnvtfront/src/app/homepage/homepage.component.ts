@@ -77,6 +77,14 @@ export class HomepageComponent implements OnInit {
     this.router.navigate(["/departureSED"]);
   }
 
+  dodajLiniju() {
+    this.router.navigate(["/add-line"]);
+  }
+
+  sveLinije() {
+    this.router.navigate(["/lineSED"]);
+  }
+
   dodajZaposlenog() {
     this.router.navigate(["/register-employee"]);
   }
