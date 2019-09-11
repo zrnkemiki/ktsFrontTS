@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { JwtInterceptor } from './interceptors/jwt-interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -38,7 +38,10 @@ import { LineSEDComponent } from './line-sed/line-sed.component';
     AddDepartureComponent,
     DepartureSEDComponent,
     AddPriceListComponent,
-    PriceListSEDComponent
+    PriceListSEDComponent,
+    AddTicketComponent,
+    AddLineComponent,
+    LineSEDComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,7 @@ import { LineSEDComponent } from './line-sed/line-sed.component';
     ToastrModule.forRoot({preventDuplicates: true})
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     GenericService,
     { provide: 'BASE_API_URL', useValue: 'http://localhost:8080/api' }
   ],
