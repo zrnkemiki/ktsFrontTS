@@ -23,9 +23,9 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
     if (localStorage.getItem('currentUser') != null) {
       const currentUser: any = this.loginService.currentUserValue;
-
-      this.currentUserEmail = currentUser.email
-      this.currentUserType = currentUser.userType
+      this.currentUserUsername = currentUser.username;
+      this.currentUserEmail = currentUser.email;
+      this.currentUserType = currentUser.userType;
     }
 
     if (this.currentUserType == "ADMINISTRATOR") {
@@ -51,6 +51,10 @@ export class HomepageComponent implements OnInit {
   logout() {
     this.loginService.logout();
     location.reload()
+  }
+
+  profil() {
+    this.router.navigate(["/user/" + this.currentUserUsername]);
   }
 
   dodajVozilo() {

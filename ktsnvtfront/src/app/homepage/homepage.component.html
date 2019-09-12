@@ -45,7 +45,7 @@
                     <button type="button" *ngIf="applicationAdministrator" (click)="dodajZaposlenog()" class="btn btn-primary">Dodaj zaposlenog</button>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span *ngIf="currentUserEmail" class="glyphicon glyphicon-user"></span> {{currentUserType}} {{currentUserEmail}}</a></li>
+                    <li><a (click)="profil()"><span *ngIf="currentUserEmail" class="glyphicon glyphicon-user"></span> {{currentUserType}} {{currentUserUsername}}</a></li>
                     <button type="button" *ngIf="!currentUserEmail" (click)="register()" class="btn btn-primary">Register</button>
                     <button type="button" *ngIf="!currentUserEmail" (click)="login()" class="btn btn-primary">Login</button>
                     <button type="button" *ngIf="currentUserEmail" (click)="logout()" class="btn btn-primary">Logout</button>

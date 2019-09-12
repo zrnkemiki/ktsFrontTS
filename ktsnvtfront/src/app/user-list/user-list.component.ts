@@ -27,8 +27,8 @@ export class UserListComponent implements OnInit {
     this.userService.findAll();
   }
 
-  editUser(username) {
-    this.router.navigate(["/edit-user/" + username]);
+  detailUser(username) {
+    this.router.navigate(["/user/" + username]);
   }
 
   returnHome() {

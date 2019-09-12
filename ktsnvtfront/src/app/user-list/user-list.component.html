@@ -20,11 +20,23 @@
                     <td>
                     {{user.firstName}} {{user.lastName}}
                     </td>
-                    <td>
-                    {{user.userType}}
+                    <td *ngIf="user.userType === 'REGISTERED_USER'">
+                    Građanin
+                    </td>
+                    <td *ngIf="user.userType === 'PENSIONARY'">
+                    Penzioner
+                    </td>
+                    <td *ngIf="user.userType === 'STUDENT'">
+                    Student
+                    </td>
+                    <td *ngIf="user.userType === 'ADMINISTRATOR'">
+                    Administrator
+                    </td>
+                    <td *ngIf="user.userType === 'EMPLOYEE'">
+                    Zaposleni
                     </td>
                     <td>
-                    <button type="button" (click)='editUser(user.username)' class="btn btn-primary">Detaljnije</button>
+                    <button type="button" (click)='detailUser(user.username)' class="btn btn-primary">Detaljnije</button>
                     </td>
                 </tr>
                 </tbody>

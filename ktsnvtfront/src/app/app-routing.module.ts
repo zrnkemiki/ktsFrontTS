@@ -15,8 +15,8 @@ import { RegisterEmployeeComponent } from './register-employee/register-employee
 import { AddPriceListComponent } from './add-price-list/add-price-list.component';
 import { PriceListSEDComponent } from './price-list-sed/price-list-sed.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AddTicketComponent } from './add-ticket/add-ticket.component';
-
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -39,6 +39,7 @@ const routes: Routes = [
   { path: 'add-priceList', component: AddPriceListComponent },
   { path: 'priceListSED', component: PriceListSEDComponent },
   { path: 'users', component: UserListComponent },
+  { path: 'user/:username', component: UserProfileComponent },
   { path: 'add-ticket', component: AddTicketComponent}
 ];
 

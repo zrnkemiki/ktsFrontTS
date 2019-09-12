@@ -24,6 +24,7 @@ import { AddTicketComponent } from './add-ticket/add-ticket.component';
 import { AddLineComponent } from './add-line/add-line.component';
 import { LineSEDComponent } from './line-sed/line-sed.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { UserListComponent } from './user-list/user-list.component';
     AddTicketComponent,
     AddLineComponent,
     LineSEDComponent,
-    UserListComponent
+    UserListComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
