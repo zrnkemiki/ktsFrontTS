@@ -15,6 +15,7 @@ import { RegisterEmployeeComponent } from './register-employee/register-employee
 import { AddPriceListComponent } from './add-price-list/add-price-list.component';
 import { PriceListSEDComponent } from './price-list-sed/price-list-sed.component';
 import { AddTicketComponent } from './add-ticket/add-ticket.component';
+import { TicketSedComponent } from './ticket-sed/ticket-sed.component';
 
 
 const routes: Routes = [
@@ -37,7 +38,9 @@ const routes: Routes = [
   { path: 'register-employee', component: RegisterEmployeeComponent },
   { path: 'add-priceList', component: AddPriceListComponent },
   { path: 'priceListSED', component: PriceListSEDComponent },
-  { path: 'add-ticket', component: AddTicketComponent}
+  { path: 'add-ticket', component: AddTicketComponent},
+  { path: 'activate-ticket/:id', component: AddTicketComponent },
+  { path: 'ticketSED', component: TicketSedComponent}
 ];
 
 @NgModule({

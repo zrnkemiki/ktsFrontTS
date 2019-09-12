@@ -96,4 +96,12 @@ export class HomepageComponent implements OnInit {
   sviCenovnici() {
     this.router.navigate(["/priceListSED"]);
   }
+
+  kupiKartu() {
+    this.router.navigate(["/add-ticket"]);
+  }
+
+  mojeKarte() {
+    this.router.navigate(["/ticketSED"]);
+  }
 }

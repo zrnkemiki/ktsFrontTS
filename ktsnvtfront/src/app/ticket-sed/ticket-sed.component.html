@@ -1,37 +1,37 @@
 <body>
     <div class="container">
         <div class="table-wrapper">
-            <div class="table-title"></div>
+
             <table class="table table-bordered table-hover table-dark">
                 <thead>
                     <tr>
                         <!--<th *ngIf="rentaCarAdmin">ID</th> -->
-                        <th>ID vozila</th>
-                        <th>ID Trenutno stajaliste</th>
-                        <th>ID linije</th>
-                        <th>Tip vozila</th>
+                        <th>ID </th>
+                        <th>Tip karte</th>
+                        <th>Vazi Do</th>
+                        <th>Aktivirana</th>
                         <th style="width: 15%">Action</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    <tr *ngFor="let vehicle of vehicles; let i = index">
+                    <tr *ngFor="let ticket of tickets; let i = index">
                         <!-- <td *ngIf="rentaCarAdmin"> -->
                         <td>
-                            {{vehicle.id}}.
+                            {{ticket.id}}.
                         </td>
                         <td>
-                            {{vehicle.idTrenutnoStajaliste}}
+                            {{ticket.tip}}
                         </td>
                         <td>
-                            {{vehicle.linijaString}}
+                            {{ticket.vaziDo | date}}
                         </td>
                         <td>
-                            {{vehicle.tip}}
+                            {{ticket.aktivirana}}
                         </td>
                         <td>
-                            <button (click)='deleteVehicle(vehicle.id)' *ngIf="applicationEmployee" type="button" class="btn btn-danger">Delete</button>
-                            <button type="button" (click)='editVehicle(vehicle.id)' *ngIf="applicationEmployee" class="btn btn-warning">Edit</button>
+                            <button (click)='deleteTicket(ticket.id)' type="button" class="btn btn-danger">Delete</button>
+                            <button type="button" (click)='activateTicket(ticket.id)' class="btn btn-warning">Activate</button>
                         </td>
                     </tr>
 

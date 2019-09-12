@@ -15,28 +15,33 @@ export class AddTicketComponent implements OnInit {
   public ticket: Ticket;
 
   constructor(private ticketService: TicketService, private toastr: ToastrService, private router: Router, private route: ActivatedRoute) {
-    this.ticket = { id: "", vaziDo: undefined, vaziOd: undefined, tip:"", cena: undefined, aktivirana:"", idVlasnik:""};
+    this.ticket = { id: "", vaziDo: undefined, vaziOd: undefined, tip: "", cena: undefined, aktivirana: "", idVlasnik: "" };
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.router.url != "/add-ticket") {
+      this.getEditTicket();
+    }
+  }
 
   allTickets() {
     this.router.navigate(["/ticketSED"]);
   }
 
   addTicket() {
-    debugger;
-    if (this.ticket.tip !== '' && this.ticket.vaziDo !== undefined && this.ticket.vaziOd) {
-      if (this.router.url === "/add-ticket") {
-        this.ticketService.addTicket(this.ticket);
-      }
-      this.router.navigate(["/homepage"]);
+    if (this.router.url !== "/add-ticket") {
+      this.ticketService.editTicket(this.ticket);
     }
     else {
-      this.toastr.error('Morate popuniti sva polja!');
+      this.ticketService.addTicket(this.ticket);
     }
+    this.router.navigate(["/homepage"]);
   }
 
+  getEditTicket() {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.ticketService.getTicket(id).subscribe(ticket => this.ticket = ticket);
+  }
 
   returnHome() {
     this.router.navigate(["/homepage"]);

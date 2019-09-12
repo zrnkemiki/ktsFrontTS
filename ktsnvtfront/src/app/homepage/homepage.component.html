@@ -33,16 +33,18 @@
                 <ul class="nav navbar-nav">
                     <button type="button" class="btn btn-primary">Red vožnje</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="dodajVozilo()" class="btn btn-primary">Dodaj vozilo</button>
-                    <button type="button" *ngIf="applicationEmployee" (click)="svaVozila()" class="btn btn-primary">Sva vozila</button>
+                    <button type="button" (click)="svaVozila()" class="btn btn-primary">Sva vozila</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="dodajStajaliste()" class="btn btn-primary">Dodaj stajalište</button>
-                    <button type="button" *ngIf="applicationEmployee" (click)="svaStajalista()" class="btn btn-primary">Sva stajališta</button>
+                    <button type="button" (click)="svaStajalista()" class="btn btn-primary">Sva stajališta</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="dodajPolazak()" class="btn btn-primary">Dodaj polazak</button>
-                    <button type="button" *ngIf="applicationEmployee" (click)="sviPolasci()" class="btn btn-primary">Svi polasci</button>
+                    <button type="button" (click)="sviPolasci()" class="btn btn-primary">Svi polasci</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="dodajLiniju()" class="btn btn-primary">Dodaj liniju</button>
-                    <button type="button" *ngIf="applicationEmployee" (click)="sveLinije()" class="btn btn-primary">Sve linije</button>
-                    <button type="button" *ngIf="!applicationEmployee" (click)="dodajCenovnik()" class="btn btn-primary">Dodaj cenovnik</button>
-                    <button type="button" *ngIf="!applicationEmployee" (click)="sviCenovnici()" class="btn btn-primary"> Cenovnici</button>
+                    <button type="button" (click)="sveLinije()" class="btn btn-primary">Sve linije</button>
+                    <button type="button" *ngIf="applicationEmployee" (click)="dodajCenovnik()" class="btn btn-primary">Dodaj cenovnik</button>
+                    <button type="button" (click)="sviCenovnici()" class="btn btn-primary"> Cenovnici</button>
                     <button type="button" *ngIf="applicationAdministrator" (click)="dodajZaposlenog()" class="btn btn-primary">Dodaj zaposlenog</button>
+                    <button type="button" (click)="kupiKartu()" class="btn btn-primary"> Kupi kartu</button>
+                    <button type="button" (click)="mojeKarte()" class="btn btn-primary">Moje karte</button>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span *ngIf="currentUserEmail" class="glyphicon glyphicon-user"></span> {{currentUserType}} {{currentUserEmail}}</a></li>

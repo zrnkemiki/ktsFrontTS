@@ -16,23 +16,38 @@ export class VehicleSEDComponent implements OnInit {
 
   public vehicles: Vehicle[];
 
-  public aplicationAdmin: User;
-  public registeredUser: User;
+  private currentUserEmail: string;
+  private currentUserUsername: string;
+  private currentUserType: string;
+
+  private applicationAdministrator: string;
+  private applicationEmployee: string;
+  private registeredUser: string;
 
 
   constructor(
-    private http: HttpClient,
     private router: Router,
     private vehicleService: VehicleService,
-    private route: ActivatedRoute,
     private loginService: LoginService,
   ) {
   }
 
   ngOnInit() {
-    const currentUser: User = this.loginService.currentUserValue;
-    if (currentUser == null) {
-      alert("Mozete pregledati vozila ali se morate registrovati odnosno ulogovati kako bi rezervisali.")
+    if (localStorage.getItem('currentUser') != null) {
+      const currentUser: any = this.loginService.currentUserValue;
+
+      this.currentUserEmail = currentUser.email
+      this.currentUserType = currentUser.userType
+    }
+
+    if (this.currentUserType == "ADMINISTRATOR") {
+      this.applicationAdministrator = this.currentUserType;
+    }
+    else if (this.currentUserType == "EMPLOYEE") {
+      this.applicationEmployee = this.currentUserType;
+    }
+    else {
+      this.registeredUser = this.currentUserType;
     }
 
     this.vehicles = [];

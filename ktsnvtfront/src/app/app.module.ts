@@ -23,6 +23,7 @@ import { PriceListSEDComponent } from './price-list-sed/price-list-sed.component
 import { AddTicketComponent } from './add-ticket/add-ticket.component';
 import { AddLineComponent } from './add-line/add-line.component';
 import { LineSEDComponent } from './line-sed/line-sed.component';
+import { TicketSedComponent} from './ticket-sed/ticket-sed.component'
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { LineSEDComponent } from './line-sed/line-sed.component';
     PriceListSEDComponent,
     AddTicketComponent,
     AddLineComponent,
-    LineSEDComponent
+    LineSEDComponent,
+    TicketSedComponent
   ],
   imports: [
     BrowserModule,
