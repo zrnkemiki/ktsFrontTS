@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GenericService } from './generic.service';
+import { GenericService } from './service/generic.service';
 
 describe('GenericService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

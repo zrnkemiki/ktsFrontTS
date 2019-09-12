@@ -23,6 +23,7 @@ import { PriceListSEDComponent } from './price-list-sed/price-list-sed.component
 import { AddTicketComponent } from './add-ticket/add-ticket.component';
 import { AddLineComponent } from './add-line/add-line.component';
 import { LineSEDComponent } from './line-sed/line-sed.component';
+import { TicketSedComponent} from './ticket-sed/ticket-sed.component'
 import { UserListComponent } from './user-list/user-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
@@ -45,7 +46,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AddLineComponent,
     LineSEDComponent,
     UserListComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    LineSEDComponent,
+    TicketSedComponent
   ],
   imports: [
     BrowserModule,

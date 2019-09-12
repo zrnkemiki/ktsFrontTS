@@ -17,6 +17,7 @@ import { PriceListSEDComponent } from './price-list-sed/price-list-sed.component
 import { UserListComponent } from './user-list/user-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AddTicketComponent } from './add-ticket/add-ticket.component';
+import { TicketSedComponent } from './ticket-sed/ticket-sed.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -40,7 +41,9 @@ const routes: Routes = [
   { path: 'priceListSED', component: PriceListSEDComponent },
   { path: 'users', component: UserListComponent },
   { path: 'user/:username', component: UserProfileComponent },
-  { path: 'add-ticket', component: AddTicketComponent}
+  { path: 'add-ticket', component: AddTicketComponent},
+  { path: 'activate-ticket/:id', component: AddTicketComponent },
+  { path: 'ticketSED', component: TicketSedComponent}
 ];
 
 @NgModule({

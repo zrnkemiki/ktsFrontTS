@@ -2,38 +2,38 @@
     <div class="container">
         <div class="table-wrapper">
             <div class="table-title"></div>
-            <table  class="table table-bordered table-hover table-dark">
+            <table class="table table-bordered table-hover table-dark">
                 <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Broj i naziv</th>
-                    <th>Tip</th>
-                    <th style="width: 15%">Akcije</th>
-                </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Broj i naziv</th>
+                        <th>Tip</th>
+                        <th style="width: 15%">Akcije</th>
+                    </tr>
                 </thead>
-        
+
                 <tbody>
-                <tr *ngFor="let line of lines; let i = index">
-                    <td> 
-                    {{line.id}}
-                    </td>
-                    <td>
-                    {{line.broj}} - {{line.naziv}}
-                    </td>
-                    <td>
-                    {{line.tip}}
-                    </td>
-                    <td>
-                    <button (click)='deleteLine(line.id)'  type="button" class="btn btn-danger">Obriši</button>
-                    <button type="button" (click)='editLine(line.id)' class="btn btn-warning">Izmeni</button>
-                    </td>
-                </tr>
+                    <tr *ngFor="let line of lines; let i = index">
+                        <td>
+                            {{line.id}}
+                        </td>
+                        <td>
+                            {{line.broj}} - {{line.naziv}}
+                        </td>
+                        <td>
+                            {{line.tip}}
+                        </td>
+                        <td>
+                            <button (click)='deleteLine(line.id)' type="button" class="btn btn-danger" *ngIf="applicationEmployee">Obriši</button>
+                            <button type="button" (click)='editLine(line.id)' class="btn btn-warning" *ngIf="applicationEmployee">Izmeni</button>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
-    
+
             <div class="form-group" id="button">
-                <button id="return" (click)="returnHome()" class="btn btn-success">Početna stranica</button> 
+                <button id="return" (click)="returnHome()" class="btn btn-success">Početna stranica</button>
             </div>
-        </div>   
+        </div>
     </div>
 </body>

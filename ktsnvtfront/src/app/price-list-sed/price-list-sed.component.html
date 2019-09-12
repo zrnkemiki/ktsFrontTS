@@ -36,8 +36,7 @@
                             {{priceList.cena}}
                         </td>
                         <td>
-                            <button (click)='deletePriceList(priceList.id)' type="button"
-                                class="btn btn-danger">Deactivate</button>
+                            <button (click)='deletePriceList(priceList.id)' type="button" *ngIf="applicationEmployee" class="btn btn-danger">Deactivate</button>
                         </td>
                     </tr>
 

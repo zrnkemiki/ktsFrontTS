@@ -2,38 +2,38 @@
     <div class="container">
         <div class="table-wrapper">
             <div class="table-title"></div>
-    <table  class="table table-bordered table-hover table-dark">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Dan</th>
-            <th>Vreme</th>
-            <th style="width: 15%">Akcije</th>
-        </tr>
-        </thead>
+            <table class="table table-bordered table-hover table-dark">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Dan</th>
+                        <th>Vreme</th>
+                        <th style="width: 15%">Akcije</th>
+                    </tr>
+                </thead>
 
-        <tbody>
-        <tr *ngFor="let departure of departures; let i = index">
-            <td> 
-            {{departure.id}}
-            </td>
-            <td>
-            {{departure.dan}}
-            </td>
-            <td>
-            {{departure.vreme}}
-            </td>
-            <td>
-            <button (click)='deleteDeparture(departure.id)'  type="button" class="btn btn-danger">Obriši</button>
-            <button type="button" (click)='editDeparture(departure.id)' class="btn btn-warning">Izmeni</button>
-        </td>
-        </tr>
-        </tbody>
-    </table>
+                <tbody>
+                    <tr *ngFor="let departure of departures; let i = index">
+                        <td>
+                            {{departure.id}}
+                        </td>
+                        <td>
+                            {{departure.dan}}
+                        </td>
+                        <td>
+                            {{departure.vreme}}
+                        </td>
+                        <td>
+                            <button (click)='deleteDeparture(departure.id)' type="button" class="btn btn-danger" *ngIf="applicationEmployee">Obriši</button>
+                            <button type="button" (click)='editDeparture(departure.id)' class="btn btn-warning" *ngIf="applicationEmployee">Izmeni</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
-    <div class="form-group" id="button">
-        <button id="return" (click)="returnHome()" class="btn btn-success">Početna stranica</button> 
+            <div class="form-group" id="button">
+                <button id="return" (click)="returnHome()" class="btn btn-success">Početna stranica</button>
+            </div>
+        </div>
     </div>
-</div>   
-</div>
 </body>
