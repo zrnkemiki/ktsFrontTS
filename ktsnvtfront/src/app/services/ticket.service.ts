@@ -17,8 +17,15 @@ export class TicketService {
 
   constructor(private http: HttpClient) { }
 
+  getTicketByUsername(username) {
+    this.http.get<Ticket[]>(this.ticketUrl + "/" + username)
+      .subscribe(tickets => {
+        this.tickets = tickets;
+        this.ticketSource.next(this.tickets);
+      });
+  }
+
   addTicket(ticket) {
-    debugger;
     this.http.post<Ticket>(this.ticketUrl, ticket)
       .subscribe(
         addedTicket => {
@@ -29,7 +36,7 @@ export class TicketService {
       )
   }
 
-  findUserTickets(){
+  findUserTickets() {
     this.http.get<Ticket[]>(this.ticketUrl)
       .subscribe(tickets => {
         this.tickets = tickets;
@@ -38,7 +45,7 @@ export class TicketService {
   }
 
   findAll() {
-    this.http.get<Ticket[]>(this.ticketUrl+"/all")
+    this.http.get<Ticket[]>(this.ticketUrl + "/all")
       .subscribe(tickets => {
         this.tickets = tickets;
         this.ticketSource.next(this.tickets);

@@ -18,6 +18,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AddTicketComponent } from './add-ticket/add-ticket.component';
 import { TicketSedComponent } from './ticket-sed/ticket-sed.component';
+import { TicketControlComponent } from './ticket-control/ticket-control.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -43,7 +44,10 @@ const routes: Routes = [
   { path: 'user/:username', component: UserProfileComponent },
   { path: 'add-ticket', component: AddTicketComponent},
   { path: 'activate-ticket/:id', component: AddTicketComponent },
-  { path: 'ticketSED', component: TicketSedComponent}
+  { path: 'ticketSED', component: TicketSedComponent},
+  { path: 'userTicketsSED', component: TicketSedComponent},
+  { path: 'userTicketControl/:username', component: TicketSedComponent},
+  { path: 'ticketControl', component: TicketControlComponent}
 ];
 
 @NgModule({

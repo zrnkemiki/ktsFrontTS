@@ -15,7 +15,7 @@ export class AddPriceListComponent implements OnInit {
   public priceList: PriceList;
 
   constructor(private priceListService: PriceListService, private toastr: ToastrService, private router: Router, private route: ActivatedRoute) {
-    this.priceList = { id: "", datumOd: undefined, datumDo: undefined, tipKarte: "", cena: undefined };
+    this.priceList = { id: "", datumOd: undefined, datumDo: undefined, tipKarte: "", cena: undefined, aktivan: "" };
   }
 
   ngOnInit() {

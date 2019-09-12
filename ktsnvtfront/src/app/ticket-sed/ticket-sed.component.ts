@@ -17,6 +17,7 @@ import { TicketService } from '../services/ticket.service';
 export class TicketSedComponent implements OnInit {
 
   public tickets: Ticket[];
+  username: string;
 
 
 
@@ -35,7 +36,19 @@ export class TicketSedComponent implements OnInit {
     if (this.router.url === "/ticketSED") {
       this.getTickets();
     }
+    else if (this.router.url === "/userTicketsSED") {
+      this.getAllTickets();
+    }
+    else{
+      this.getTicketByUsername();
+    }
   }
+getTicketByUsername(){
+  this.username = this.route.snapshot.paramMap.get("username");
+  this.ticketService.ticketsObservable.subscribe(tickets => this.tickets = tickets);
+  this.ticketService.getTicketByUsername(this.username);
+}
+
   deleteTicket(id) {
     this.ticketService.deleteTicket(id);
 
@@ -43,6 +56,11 @@ export class TicketSedComponent implements OnInit {
 
   activateTicket(id) {
     this.router.navigate(["/activate-ticket/" + id]);
+  }
+
+  getAllTickets(){
+    this.ticketService.ticketsObservable.subscribe(tickets => this.tickets = tickets);
+    this.ticketService.findAll();
   }
 
   getTickets() {

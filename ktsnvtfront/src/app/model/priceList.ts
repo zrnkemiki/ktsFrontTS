@@ -4,4 +4,5 @@ export interface PriceList {
     datumDo: Date;
     tipKarte: string;
     cena: number;
+    aktivan: string;
 }
