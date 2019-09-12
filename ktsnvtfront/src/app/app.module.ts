@@ -44,7 +44,7 @@ import { UserListComponent } from './user-list/user-list.component';
     AddTicketComponent,
     AddLineComponent,
     LineSEDComponent,
-    UserListComponent
+    UserListComponent,
     LineSEDComponent,
     TicketSedComponent
   ],

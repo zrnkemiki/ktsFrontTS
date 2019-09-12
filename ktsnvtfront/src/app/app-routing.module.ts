@@ -40,7 +40,6 @@ const routes: Routes = [
   { path: 'add-priceList', component: AddPriceListComponent },
   { path: 'priceListSED', component: PriceListSEDComponent },
   { path: 'users', component: UserListComponent },
-  { path: 'add-ticket', component: AddTicketComponent}
   { path: 'add-ticket', component: AddTicketComponent},
   { path: 'activate-ticket/:id', component: AddTicketComponent },
   { path: 'ticketSED', component: TicketSedComponent}
