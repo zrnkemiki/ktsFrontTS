@@ -18,6 +18,8 @@ import { Departure } from '../model/departure';
 export class AddLineComponent implements OnInit {
 
   public line: Line;
+  public stop: Stop;
+  public departure: Departure;
   public stopsFields = { fields: Array<Stop>() };
   public departuresFields = { fields: Array<Departure>() };
   public stops = Array<Stop>();
@@ -25,16 +27,17 @@ export class AddLineComponent implements OnInit {
 
   constructor(private lineService: LineService, private departureService: DepartureService, private stopService: StopService, 
       private toastr: ToastrService, private router: Router, private route: ActivatedRoute) { 
-    this.line = { id: "", broj: "", naziv: "", stajalista: Array<Stop>(), polasci: Array<Departure>(), tip: "Autobus" };
+    this.line = { id: "", broj: "", naziv: "", stajalista: Array<Stop>(), polasci: Array<Departure>(), tip: "" };
   }
 
   ngOnInit() {
+    this.getStopsAndDepartures();
     if (this.router.url != "/add-line") {
       this.getEditLine();
+    } else {
+      this.stopsFields.fields.push({ id: "", naziv: "", lokacijaX: "", lokacijaY: "", adresa: "" });
+      this.departuresFields.fields.push({ id: "", dan: "", vreme: "" });
     }
-    this.getStopsAndDepartures();
-    this.stopsFields.fields.push({ id: "", naziv: "", lokacijaX: "", lokacijaY: "", adresa: "" });
-    this.departuresFields.fields.push({ id: "", dan: "", vreme: "" });
   }
 
   allLines() {
@@ -43,7 +46,15 @@ export class AddLineComponent implements OnInit {
 
   getEditLine() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.lineService.getLine(id).subscribe(line => this.line = line);
+    this.lineService.getLine(id).subscribe(line => {
+      this.line = line;
+      this.line.stajalista.forEach(stop => {
+        this.stopsFields.fields.push(stop);
+      });
+      this.line.polasci.forEach(departure => {
+        this.departuresFields.fields.push(departure);
+      });
+    });
   }
 
   getStopsAndDepartures() {
@@ -51,24 +62,53 @@ export class AddLineComponent implements OnInit {
     this.departureService.getAll().subscribe(departures => this.departures = departures as Departure[]);
   }
 
-  // TODO omoguciti slanje linije sa odabranim stajalistima i polascima na backend
   addLine() {
     if (this.line.broj !== '' && this.line.naziv !== '' && this.line.stajalista !== [] && this.line.polasci !== [] && this.line.tip !== '') {
       if (this.router.url != "/add-line") {
-        this.lineService.editLine(this.line);
+        this.stopService.findAll();
+        this.departureService.findAll();
+        let temp = {"stops": [], "departures": []};
+        this.stopsFields.fields.forEach(stopID => {
+          this.stopService.getStop(stopID).subscribe(currentStop => { 
+            this.stop = currentStop;
+            temp.stops.push(this.stop);
+          });
+        });
+        this.departuresFields.fields.forEach(departureID => {
+          this.departureService.getDeparture(departureID).subscribe(currentDeparture => { 
+            this.departure = currentDeparture;
+            temp.departures.push(this.departure);
+          });
+        });
+        setTimeout(() => {
+          this.line.stajalista = temp.stops;
+          this.line.polasci = temp.departures;
+          this.lineService.editLine(this.line);
+        }, 500);
       }
       else {
-        /*let temp = {"stops": [], "departures": []};
-        this.stopsFields.fields.forEach(stop => {
-          temp.stops.push(stop);
+        this.stopService.findAll();
+        this.departureService.findAll();
+        let temp = {"stops": [], "departures": []};
+        this.stopsFields.fields.forEach(stopID => {
+          this.stopService.getStop(stopID).subscribe(currentStop => { 
+            this.stop = currentStop;
+            temp.stops.push(this.stop);
+          });
         });
-        this.departuresFields.fields.forEach(departure => {
-          temp.departures.push(departure);
+        this.departuresFields.fields.forEach(departureID => {
+          this.departureService.getDeparture(departureID).subscribe(currentDeparture => { 
+            this.departure = currentDeparture;
+            temp.departures.push(this.departure);
+          });
         });
-        this.line.stajalista = temp.stops;
-        this.line.polasci = temp.departures;*/
-        this.lineService.addLine(this.line);
+        setTimeout(() => {
+          this.line.stajalista = temp.stops;
+          this.line.polasci = temp.departures;
+          this.lineService.addLine(this.line);
+        }, 500);
       }
+      console.log(this.line);
       this.router.navigate(["/homepage"]);
     }
     else {
