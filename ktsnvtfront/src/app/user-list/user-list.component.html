@@ -1,0 +1,38 @@
+<body>
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title"></div>
+            <table  class="table table-bordered table-hover table-dark">
+                <thead>
+                <tr>
+                    <th>Korisničko ime</th>
+                    <th>Ime i prezime</th>
+                    <th>Tip</th>
+                    <th style="width: 10%">Akcije</th>
+                </tr>
+                </thead>
+        
+                <tbody>
+                <tr *ngFor="let user of users; let i = index">
+                    <td> 
+                    {{user.username}}
+                    </td>
+                    <td>
+                    {{user.firstName}} {{user.lastName}}
+                    </td>
+                    <td>
+                    {{user.userType}}
+                    </td>
+                    <td>
+                    <button type="button" (click)='editUser(user.username)' class="btn btn-primary">Detaljnije</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+    
+            <div class="form-group" id="button">
+                <button id="return" (click)="returnHome()" class="btn btn-success">Početna stranica</button> 
+            </div>
+        </div>   
+    </div>
+</body>

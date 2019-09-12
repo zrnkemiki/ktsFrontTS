@@ -24,6 +24,7 @@ import { AddTicketComponent } from './add-ticket/add-ticket.component';
 import { AddLineComponent } from './add-line/add-line.component';
 import { LineSEDComponent } from './line-sed/line-sed.component';
 import { TicketSedComponent} from './ticket-sed/ticket-sed.component'
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,8 @@ import { TicketSedComponent} from './ticket-sed/ticket-sed.component'
     PriceListSEDComponent,
     AddTicketComponent,
     AddLineComponent,
+    LineSEDComponent,
+    UserListComponent
     LineSEDComponent,
     TicketSedComponent
   ],
