@@ -18,7 +18,7 @@ export class TicketService {
   constructor(private http: HttpClient) { }
 
   getTicketByUsername(username) {
-    this.http.get<Ticket[]>(this.ticketUrl + "/" + username)
+    this.http.get<Ticket[]>(this.ticketUrl + "/getTicketByUserName/" + username)
       .subscribe(tickets => {
         this.tickets = tickets;
         this.ticketSource.next(this.tickets);
@@ -67,7 +67,7 @@ export class TicketService {
       )
   }
 
-  editTicket(ticket) {
+  activateTicket(ticket) {
     debugger;
     this.http.put<Ticket>(this.ticketUrl, ticket)
       .subscribe(editedTicket => {
