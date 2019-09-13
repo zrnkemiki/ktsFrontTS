@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-upload',
@@ -8,23 +9,38 @@ import { FileUploader } from 'ng2-file-upload';
 })
 export class UploadComponent implements OnInit {
 
-  @ViewChild('fileInput', {static: false}) fileInput: ElementRef;
+  fileToUpload: File = null;
+  fileName: string;
 
-  uploader: FileUploader;
-  isDropOver: boolean;
 
-  ngOnInit(): void {
-    const headers = [{ name: 'Accept', value: 'application/json'}];
-    this.uploader = new FileUploader({ url: 'http://localhost:8080/api/files', autoUpload: true, headers: headers }); 
-    this.uploader.onCompleteAll = () => alert('File uploaded');
+  ngOnInit() {
+
   }
 
-  fileOverAnother(e: any): void {
-    this.isDropOver = e;
+  constructor(private http: HttpClient) {
+
+  }
+  handleFileInput(files: FileList) {
+    var formData = new FormData();
+    this.fileToUpload = files.item(0)
+    this.fileName = this.fileToUpload.name;
+    formData.append('documentName', this.fileName);
+    formData.append('file', this.fileToUpload);
+    debugger;
+    this.uploadFile(formData);  
+    debugger; 
   }
 
-  fileClicked() {
-    this.fileInput.nativeElement.click();
+  uploadFile(formData: FormData){
+    console.log(formData.append);
+    return this.http.post<void>("http://localhost:8080/api/file/addImage" , formData)
+    .subscribe(
+      response => {
+        alert("Successfully added vehicle. New  vehicle added.");
+      }
+    )
   }
+
+
 
 }

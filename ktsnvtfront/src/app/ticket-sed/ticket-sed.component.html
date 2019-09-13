@@ -11,6 +11,7 @@
                         <th>Vazi Do</th>
                         <th>Aktivirana</th>
                         <th>Vlasnik ID</th>
+                        <th>Cena</th>
                         <th style="width: 15%">Action</th>
                     </tr>
                 </thead>
@@ -34,6 +35,9 @@
                         </td>
                         <td>
                             {{ticket.vlasnik}}
+                        </td>
+                        <td>
+                            {{ticket.cena}}
                         </td>
                         <td>
                             <button (click)='deleteTicket(ticket.id)' type="button" class="btn btn-danger">Delete</button>
