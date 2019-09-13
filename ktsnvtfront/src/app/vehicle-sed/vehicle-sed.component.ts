@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Vehicle } from '../model/vehicle';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router'
-import { ActivatedRoute } from '@angular/router'
 import { VehicleService } from '../services/vehicle.service';
 import { LoginService } from '../services/login.service';
-import { User } from '../model/user';
 
 @Component({
   selector: 'app-vehicle-sed',
   templateUrl: './vehicle-sed.component.html',
   styleUrls: ['./vehicle-sed.component.css']
 })
+
 export class VehicleSEDComponent implements OnInit {
 
   public vehicles: Vehicle[];
@@ -24,13 +22,11 @@ export class VehicleSEDComponent implements OnInit {
   private applicationEmployee: string;
   private registeredUser: string;
 
-
   constructor(
     private router: Router,
     private vehicleService: VehicleService,
-    private loginService: LoginService,
-  ) {
-  }
+    private loginService: LoginService
+  ) { }
 
   ngOnInit() {
     if (localStorage.getItem('currentUser') != null) {
@@ -73,8 +69,14 @@ export class VehicleSEDComponent implements OnInit {
   editVehicle(id) {
     this.router.navigate(["/edit-vehicle/" + id]);
   }
+
   getVehicles() {
     this.vehicleService.vehiclesObservable.subscribe(vehicles => this.vehicles = vehicles);
     this.vehicleService.findAll();
   }
+
+  returnHome() {
+    this.router.navigate(["/homepage"]);
+  }
+
 }

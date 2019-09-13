@@ -5,18 +5,16 @@
             <table class="table table-bordered table-hover table-dark">
                 <thead>
                     <tr>
-                        <!--<th *ngIf="rentaCarAdmin">ID</th> -->
                         <th>ID vozila</th>
-                        <th>ID Trenutno stajaliste</th>
+                        <th>ID trenutnog stajališta</th>
                         <th>ID linije</th>
                         <th>Tip vozila</th>
-                        <th style="width: 15%">Action</th>
+                        <th style="width: 15%">Akcije</th>
                     </tr>
                 </thead>
-                <tbody>
 
+                <tbody>
                     <tr *ngFor="let vehicle of vehicles; let i = index">
-                        <!-- <td *ngIf="rentaCarAdmin"> -->
                         <td>
                             {{vehicle.id}}.
                         </td>
@@ -30,18 +28,15 @@
                             {{vehicle.tip}}
                         </td>
                         <td>
-                            <button (click)='deleteVehicle(vehicle.id)' *ngIf="applicationEmployee" type="button" class="btn btn-danger">Delete</button>
-                            <button type="button" (click)='editVehicle(vehicle.id)' *ngIf="applicationEmployee" class="btn btn-warning">Edit</button>
+                            <button (click)='deleteVehicle(vehicle.id)' *ngIf="applicationEmployee" type="button" class="btn btn-danger">Obriši</button>
+                            <button type="button" (click)='editVehicle(vehicle.id)' *ngIf="applicationEmployee" class="btn btn-warning">Izmeni</button>
                         </td>
                     </tr>
-
                 </tbody>
             </table>
-            <div class="clearfix">
+            <div class="form-group" id="button">
+                <button id="return" (click)="returnHome()" class="btn btn-success">Početna stranica</button>
             </div>
         </div>
-
     </div>
-
-
 </body>

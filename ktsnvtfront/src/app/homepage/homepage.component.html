@@ -19,17 +19,11 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar fixed-top navbar-light bg-light">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-            </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
+                    <li class="nav-item">
                     <button type="button" (click)="redVoznje()" class="btn btn-primary">Red vožnje</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="dodajVozilo()" class="btn btn-primary">Dodaj vozilo</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="svaVozila()" class="btn btn-primary">Sva vozila</button>
@@ -47,12 +41,17 @@
                     <button type="button" *ngIf="currentUserEmail" (click)="mojeKarte()" class="btn btn-primary">Moje karte</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="karteKorisnika()" class="btn btn-primary">Karte svih korisnika</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="kontrolaKarte()" class="btn btn-primary">Kontrola karte</button>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a (click)="profil()"><span *ngIf="currentUserEmail" class="glyphicon glyphicon-user"></span> {{currentUserType}} {{currentUserUsername}}</a></li>
-                    <button type="button" *ngIf="!currentUserEmail" (click)="register()" class="btn btn-primary">Register</button>
-                    <button type="button" *ngIf="!currentUserEmail" (click)="login()" class="btn btn-primary">Login</button>
-                    <button type="button" *ngIf="currentUserEmail" (click)="logout()" class="btn btn-primary">Logout</button>
+                    <li>
+                        <a *ngIf="currentUserEmail" role="button" (click)="profil()">
+                            <span *ngIf="currentUserEmail" class="glyphicon glyphicon-user"></span> {{currentUserType}} {{currentUserUsername}}
+                        </a>
+                    </li>
+                    <button type="button" *ngIf="!currentUserEmail" (click)="register()" class="btn btn-primary">Registracija</button>
+                    <button type="button" *ngIf="!currentUserEmail" (click)="login()" class="btn btn-primary">Prijava</button>
+                    <button type="button" *ngIf="currentUserEmail" (click)="logout()" class="btn btn-primary">Odjava</button>
                 </ul>
             </div>
         </div>

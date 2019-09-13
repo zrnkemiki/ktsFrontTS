@@ -28,8 +28,8 @@
             {{stop.adresa}}
           </td>
           <td>
-            <button (click)='deleteStop(stop.id)'  type="button" class="btn btn-danger">Obriši</button>
-            <button type="button" (click)='editStop(stop.id)' class="btn btn-warning">Izmeni</button>
+            <button *ngIf="applicationEmployee" (click)='deleteStop(stop.id)' type="button" class="btn btn-danger">Obriši</button>
+            <button *ngIf="applicationEmployee" type="button" (click)='editStop(stop.id)' class="btn btn-warning">Izmeni</button>
         </td>
         </tr>
       </tbody>

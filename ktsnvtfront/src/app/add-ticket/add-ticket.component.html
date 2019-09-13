@@ -7,22 +7,17 @@
                         <form class="form" action="" method="post">
                             <h3 *ngIf="router.url === '/add-ticket'" class="text-center text-info">Kupovina karte</h3>
                             <h3 *ngIf="router.url !== '/add-ticket'" class="text-center text-info">Aktivacija karte</h3>
-
-
-
                             <div *ngIf="router.url === '/add-ticket'" class="form-group">
                                 <label for="dan" class="text-info">Tip:</label><br>
                                 <select name="dan" class="form-control" [(ngModel)]="this.ticket.tip" required>
                                     <option value="jednokratna" selected>Jednokratna</option>
                                         <option value="dnevna">Dnevna</option>
-                                        <option value="mesecna">Mesecna</option>
-                                        <option value="mesecnaskolska">Mesecna Skolska</option>
-                                        <option value="mesecnapenzionerska">Mesecna penzionerska</option>
+                                        <option value="mesecna">Mesečna</option>
+                                        <option value="mesecnaskolska">Mesečna školska</option>
+                                        <option value="mesecnapenzionerska">Mesečna penzionerska</option>
                                 </select>
                             </div>
-
-
-                            <div *ngIf="router.url !== '/add-ticket'" class="form-group">
+                            <div *ngIf="router.url !== '/add-ticket'" class="form-group" id="input">
                                 <label for="dan" class="text-info">Tip karte:</label><br>
                                 <input type="text" name="tip karte" value="{{this.ticket.tip}}" disabled>
                             </div>
