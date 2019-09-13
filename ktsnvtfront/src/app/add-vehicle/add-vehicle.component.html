@@ -8,16 +8,21 @@
                             <h3 class="text-center text-info">New Vehicle</h3>
                             <div class="form-group">
                                 <label for="line_id" class="text-info">Linija ID:</label><br>
-                                <input type="text" name="line_id" class="form-control"  [(ngModel)]="this.vehicle.linijaString">
+                                <input type="text" name="line_id" class="form-control" [(ngModel)]="this.vehicle.linijaString">
                             </div>
+
                             <div class="form-group">
-                                <label for="vehicleType" class="text-info">Tip vozila:</label><br>
-                                <input type="text" id="vehicleType" name="vehicleType" placeholder="" class="form-control" [(ngModel)]="this.vehicle.tip">
+                                <label for="dan" class="text-info">Tip vozila:</label><br>
+                                <select name="dan" class="form-control" [(ngModel)]="this.vehicle.tip" required>
+                                    <option value="autobus" selected>Autobus</option>
+                                    <option value="tramvaj">Tramvaj</option>
+                                    <option value="metro">Metro</option>
+                                </select>
                             </div>
-                        
+
                             <div class="form-group">
-                                <button (click)="addVehicle()"  class="btn btn-primary">Save vehicle</button> 
-                            </div>                            
+                                <button (click)="addVehicle()" class="btn btn-primary">Save vehicle</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -25,6 +30,3 @@
         </div>
     </div>
 </body>
-
-
-

@@ -68,7 +68,6 @@ export class TicketService {
   }
 
   activateTicket(ticket) {
-    debugger;
     this.http.put<Ticket>(this.ticketUrl, ticket)
       .subscribe(editedTicket => {
         for (var i = 0; i < this.tickets.length; i++) {

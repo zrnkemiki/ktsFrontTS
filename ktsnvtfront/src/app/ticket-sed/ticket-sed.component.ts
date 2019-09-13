@@ -18,6 +18,7 @@ export class TicketSedComponent implements OnInit {
 
   public tickets: Ticket[];
   username: string;
+  ticket: Ticket;
 
 
 
