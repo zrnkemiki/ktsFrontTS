@@ -19,3 +19,12 @@ footer {
     background-color: #203535;
     padding: 25px;
 }
+
+button {
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
+
+.mapouter {
+    margin-left: 7%;
+}

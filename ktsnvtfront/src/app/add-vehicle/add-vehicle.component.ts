@@ -63,4 +63,8 @@ export class AddVehicleComponent implements OnInit {
     this.router.navigate(["/vehicleSED"]);
   }
 
+  returnHome() {
+    this.router.navigate(["/homepage"]);
+  }
+
 }

@@ -3,15 +3,14 @@ import { PriceList } from '../model/priceList';
 import { Router } from '@angular/router'
 import { PriceListService } from '../services/price-list.service';
 import { LoginService } from '../services/login.service';
-;
 
 @Component({
   selector: 'app-price-list-sed',
   templateUrl: './price-list-sed.component.html',
   styleUrls: ['./price-list-sed.component.css']
 })
-export class PriceListSEDComponent implements OnInit {
 
+export class PriceListSEDComponent implements OnInit {
 
   public priceLists: PriceList[];
   private currentUserEmail: string;
@@ -22,13 +21,11 @@ export class PriceListSEDComponent implements OnInit {
   private applicationEmployee: string;
   private registeredUser: string;
 
-
   constructor(
     private router: Router,
     private priceListService: PriceListService,    
     private loginService: LoginService,
-  ) {
-  }
+  ) { }
 
   ngOnInit() {
     if (localStorage.getItem('currentUser') != null) {
@@ -59,8 +56,14 @@ export class PriceListSEDComponent implements OnInit {
     this.priceListService.deletePriceList(id);
 
   }
+
   getPriceLists() {
     this.priceListService.priceListObservable.subscribe(priceLists => this.priceLists = priceLists);
     this.priceListService.findAll();
   }
+
+  returnHome() {
+    this.router.navigate(["/homepage"]);
+  }
+
 }

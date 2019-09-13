@@ -57,6 +57,10 @@ export class HomepageComponent implements OnInit {
     this.router.navigate(["/user/" + this.currentUserUsername]);
   }
 
+  redVoznje() {
+    this.router.navigate(["/timetable"]);
+  }
+
   dodajVozilo() {
     this.router.navigate(["/add-vehicle"]);
   }

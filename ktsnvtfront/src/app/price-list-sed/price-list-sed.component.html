@@ -4,19 +4,18 @@
             <table class="table table-bordered table-hover table-dark">
                 <thead>
                     <tr>
-                        <!--<th *ngIf="rentaCarAdmin">ID</th> -->
                         <th>ID cenovnik</th>
                         <th>Aktivan</th>
                         <th>Datum od</th>
                         <th>Datum do</th>
                         <th>Tip karte</th>
                         <th>Cena</th>
-                        <th style="width: 15%">Action</th>
+                        <th style="width: 15%">Akcija</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <tr *ngFor="let priceList of priceLists; let i = index">
-                        <!-- <td *ngIf="rentaCarAdmin"> -->
                         <td>
                             {{priceList.id}}.
                         </td>
@@ -36,17 +35,14 @@
                             {{priceList.cena}}
                         </td>
                         <td>
-                            <button (click)='deletePriceList(priceList.id)' type="button" *ngIf="applicationEmployee" class="btn btn-danger">Deactivate</button>
+                            <button (click)='deletePriceList(priceList.id)' type="button" *ngIf="applicationEmployee" class="btn btn-danger">Deaktiviraj</button>
                         </td>
                     </tr>
-
                 </tbody>
             </table>
-            <div class="clearfix">
+            <div class="form-group" id="button">
+                <button id="return" (click)="returnHome()" class="btn btn-success">Početna stranica</button>
             </div>
         </div>
-
     </div>
-
-
 </body>

@@ -53,7 +53,7 @@ export class LoginService {
         return userDTO;
       })).subscribe(
         (data) => { },
-        error => { alert("You have entered wrong username or password. Please try again!") }
+        error => { alert("Pogrešno ime i/ili lozinka, pokušajte ponovo") }
       );
 
   }
@@ -61,7 +61,6 @@ export class LoginService {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
-    alert("You have succesfully logged out!")
     this.router.navigate(["/homepage"]);
   }
 

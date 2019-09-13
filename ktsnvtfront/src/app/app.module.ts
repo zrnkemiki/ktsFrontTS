@@ -28,7 +28,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UploadComponent } from './upload/upload.component';
 import { TicketControlComponent } from './ticket-control/ticket-control.component';
-import {FileUploadModule} from 'ng2-file-upload';
+import { TimetableComponent } from './timetable/timetable.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +53,8 @@ import {FileUploadModule} from 'ng2-file-upload';
     LineSEDComponent,
     TicketSedComponent,
     UploadComponent,
-    TicketControlComponent
+    TicketControlComponent,
+    TimetableComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +62,6 @@ import {FileUploadModule} from 'ng2-file-upload';
     HttpClientModule,    
     FormsModule,
     BrowserAnimationsModule,
-    FileUploadModule,
     ToastrModule.forRoot({preventDuplicates: true})
   ],
   providers: [

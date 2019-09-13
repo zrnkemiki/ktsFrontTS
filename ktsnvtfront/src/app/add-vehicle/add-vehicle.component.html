@@ -5,7 +5,7 @@
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
                         <form class="form" action="" method="post">
-                            <h3 class="text-center text-info">New Vehicle</h3>
+                            <h3 class="text-center text-info">Novo vozilo</h3>
                             <div class="form-group">
                                 <label for="line_id" class="text-info">Linija ID:</label><br>
                                 <input type="text" name="line_id" class="form-control" [(ngModel)]="this.vehicle.linijaString">
@@ -20,8 +20,9 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <button (click)="addVehicle()" class="btn btn-primary">Save vehicle</button>
+                            <div class="form-group" id="buttons">
+                                <button (click)="addVehicle()" class="btn btn-primary">Sačuvaj</button>
+                                <button (click)="returnHome()" class="btn btn-danger">Otkaži</button>
                             </div>
                         </form>
                     </div>

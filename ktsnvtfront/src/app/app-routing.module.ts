@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { TimetableComponent } from './timetable/timetable.component';
 import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
 import { VehicleSEDComponent } from './vehicle-sed/vehicle-sed.component';
 import { AddStopComponent } from './add-stop/add-stop.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'homepage', component: HomepageComponent },
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
+  { path: 'timetable', component: TimetableComponent },
   { path: 'add-vehicle', component: AddVehicleComponent },
   { path: 'edit-vehicle/:id', component: AddVehicleComponent },
   { path: 'vehicleSED', component: VehicleSEDComponent },

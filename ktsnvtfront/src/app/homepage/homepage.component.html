@@ -19,18 +19,12 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar fixed-top navbar-light bg-light">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-            </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <button type="button" class="btn btn-primary">Red vožnje</button>
+                    <li class="nav-item">
+                    <button type="button" (click)="redVoznje()" class="btn btn-primary">Red vožnje</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="dodajVozilo()" class="btn btn-primary">Dodaj vozilo</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="svaVozila()" class="btn btn-primary">Sva vozila</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="dodajStajaliste()" class="btn btn-primary">Dodaj stajalište</button>
@@ -38,6 +32,7 @@
                     <button type="button" *ngIf="applicationEmployee" (click)="dodajPolazak()" class="btn btn-primary">Dodaj polazak</button>
                     <button type="button" (click)="sviPolasci()" class="btn btn-primary">Svi polasci</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="dodajLiniju()" class="btn btn-primary">Dodaj liniju</button>
+                    <button type="button" *ngIf="applicationEmployee" (click)="sveLinije()" class="btn btn-primary">Sve linije</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="sviKorisnici()" class="btn btn-primary">Korisnici</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="dodajCenovnik()" class="btn btn-primary">Dodaj cenovnik</button>
                     <button type="button" (click)="sviCenovnici()" class="btn btn-primary"> Cenovnici</button>
@@ -46,12 +41,17 @@
                     <button type="button" *ngIf="currentUserEmail" (click)="mojeKarte()" class="btn btn-primary">Moje karte</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="karteKorisnika()" class="btn btn-primary">Karte svih korisnika</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="kontrolaKarte()" class="btn btn-primary">Kontrola karte</button>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a (click)="profil()"><span *ngIf="currentUserEmail" class="glyphicon glyphicon-user"></span> {{currentUserType}} {{currentUserUsername}}</a></li>
-                    <button type="button" *ngIf="!currentUserEmail" (click)="register()" class="btn btn-primary">Register</button>
-                    <button type="button" *ngIf="!currentUserEmail" (click)="login()" class="btn btn-primary">Login</button>
-                    <button type="button" *ngIf="currentUserEmail" (click)="logout()" class="btn btn-primary">Logout</button>
+                    <li>
+                        <a *ngIf="currentUserEmail" role="button" (click)="profil()">
+                            <span *ngIf="currentUserEmail" class="glyphicon glyphicon-user"></span> {{currentUserType}} {{currentUserUsername}}
+                        </a>
+                    </li>
+                    <button type="button" *ngIf="!currentUserEmail" (click)="register()" class="btn btn-primary">Registracija</button>
+                    <button type="button" *ngIf="!currentUserEmail" (click)="login()" class="btn btn-primary">Prijava</button>
+                    <button type="button" *ngIf="currentUserEmail" (click)="logout()" class="btn btn-primary">Odjava</button>
                 </ul>
             </div>
         </div>

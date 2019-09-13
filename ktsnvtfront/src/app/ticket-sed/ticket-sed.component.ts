@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Vehicle } from '../model/vehicle';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router'
 import { ActivatedRoute } from '@angular/router'
-import { VehicleService } from '../services/vehicle.service';
 import { LoginService } from '../services/login.service';
-import { User } from '../model/user';
 import { Ticket } from '../model/ticket';
 import { TicketService } from '../services/ticket.service';
 
@@ -14,13 +11,12 @@ import { TicketService } from '../services/ticket.service';
   templateUrl: './ticket-sed.component.html',
   styleUrls: ['./ticket-sed.component.css']
 })
+
 export class TicketSedComponent implements OnInit {
 
   public tickets: Ticket[];
   username: string;
   ticket: Ticket;
-
-
 
   constructor(
     private http: HttpClient,
@@ -28,8 +24,7 @@ export class TicketSedComponent implements OnInit {
     private ticketService: TicketService,
     private route: ActivatedRoute,
     private loginService: LoginService,
-  ) {
-  }
+  ) { }
 
   ngOnInit() {
     this.tickets = [];
@@ -44,11 +39,12 @@ export class TicketSedComponent implements OnInit {
       this.getTicketByUsername();
     }
   }
-getTicketByUsername(){
-  this.username = this.route.snapshot.paramMap.get("username");
-  this.ticketService.ticketsObservable.subscribe(tickets => this.tickets = tickets);
-  this.ticketService.getTicketByUsername(this.username);
-}
+
+  getTicketByUsername(){
+    this.username = this.route.snapshot.paramMap.get("username");
+    this.ticketService.ticketsObservable.subscribe(tickets => this.tickets = tickets);
+    this.ticketService.getTicketByUsername(this.username);
+  }
 
   deleteTicket(id) {
     this.ticketService.deleteTicket(id);
@@ -68,4 +64,9 @@ getTicketByUsername(){
     this.ticketService.ticketsObservable.subscribe(tickets => this.tickets = tickets);
     this.ticketService.findUserTickets();
   }
+
+  returnHome() {
+    this.router.navigate(["/homepage"]);
+  }
+
 }

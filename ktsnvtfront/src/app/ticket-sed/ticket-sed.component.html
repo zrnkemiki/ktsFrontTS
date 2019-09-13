@@ -1,22 +1,21 @@
 <body>
     <div class="container">
         <div class="table-wrapper">
-
             <table class="table table-bordered table-hover table-dark">
                 <thead>
                     <tr>
-                        <th>ID Karte</th>
+                        <th>ID karte</th>
                         <th>Tip karte</th>
-                        <th>Vazi Od</th>
-                        <th>Vazi Do</th>
+                        <th>Važi od</th>
+                        <th>Važi do</th>
                         <th>Aktivirana</th>
                         <th>Vlasnik ID</th>
                         <th>Cena</th>
                         <th style="width: 15%">Action</th>
                     </tr>
                 </thead>
-                <tbody>
 
+                <tbody>
                     <tr *ngFor="let ticket of tickets; let i = index">
                         <td>
                             {{ticket.id}}.
@@ -37,17 +36,14 @@
                             {{ticket.vlasnik}}
                         </td>
                         <td>
-                            {{ticket.cena}}
-                        </td>
-                        <td>
                             <button (click)='deleteTicket(ticket.id)' type="button" class="btn btn-danger">Delete</button>
                             <button type="button" (click)='activateTicket(ticket.id)' class="btn btn-warning">Activate</button>
                         </td>
                     </tr>
-
                 </tbody>
             </table>
-            <div class="clearfix">
+            <div class="form-group" id="button">
+                <button id="return" (click)="returnHome()" class="btn btn-success">Početna stranica</button>
             </div>
         </div>
     </div>

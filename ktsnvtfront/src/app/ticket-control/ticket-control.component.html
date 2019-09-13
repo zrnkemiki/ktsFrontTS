@@ -5,14 +5,14 @@
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-7">
                         <form class="form" action="" method="post">
-                            <h3 class="text-center text-info">Ticket control</h3>
+                            <h3 class="text-center text-info">Kontrola karte</h3>
 
-                            <div class="form-group">
-                                <label for="dan" class="text-info">Username:</label><br>
+                            <div class="form-group" id="input">
+                                <label for="dan" class="text-info">Korisničko ime:</label><br>
                                 <input type="text" name="username" [(ngModel)]="this.username" required>
                             </div>
                             <div class="form-group" id="buttons">
-                                <button (click)="checkTicket(this.username)" class="btn btn-primary">Sačuvaj</button>
+                                <button (click)="checkTicket(this.username)" class="btn btn-primary">Potvrdi</button>
                                 <button (click)="returnHome()" class="btn btn-danger">Otkaži</button>
                             </div>
                         </form>
