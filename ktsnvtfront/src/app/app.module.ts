@@ -29,6 +29,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UploadComponent } from './upload/upload.component';
 import { TicketControlComponent } from './ticket-control/ticket-control.component';
 import { TimetableComponent } from './timetable/timetable.component';
+import {FileUploadModule} from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { TimetableComponent } from './timetable/timetable.component';
     HttpClientModule,    
     FormsModule,
     BrowserAnimationsModule,
+    FileUploadModule,
     ToastrModule.forRoot({preventDuplicates: true})
   ],
   providers: [

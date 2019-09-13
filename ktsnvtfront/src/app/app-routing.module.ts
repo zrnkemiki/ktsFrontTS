@@ -20,6 +20,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AddTicketComponent } from './add-ticket/add-ticket.component';
 import { TicketSedComponent } from './ticket-sed/ticket-sed.component';
 import { TicketControlComponent } from './ticket-control/ticket-control.component';
+import { UploadComponent } from './upload/upload.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -49,7 +50,8 @@ const routes: Routes = [
   { path: 'ticketSED', component: TicketSedComponent},
   { path: 'userTicketsSED', component: TicketSedComponent},
   { path: 'userTicketControl/:username', component: TicketSedComponent},
-  { path: 'ticketControl', component: TicketControlComponent}
+  { path: 'ticketControl', component: TicketControlComponent},
+  { path: 'imgupload', component: UploadComponent}
 ];
 
 @NgModule({

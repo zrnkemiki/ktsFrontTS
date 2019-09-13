@@ -37,12 +37,12 @@ export class AddTicketComponent implements OnInit {
     }
     this.router.navigate(["/homepage"]);
   }
-  
+
   getEditTicket() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.ticketService.getTicket(id).subscribe(ticket => this.ticket = ticket);
   }
-  
+
   returnHome() {
     this.router.navigate(["/homepage"]);
   }
