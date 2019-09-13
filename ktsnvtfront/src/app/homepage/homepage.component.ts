@@ -112,4 +112,12 @@ export class HomepageComponent implements OnInit {
   mojeKarte() {
     this.router.navigate(["/ticketSED"]);
   }
+
+  karteKorisnika() {
+    this.router.navigate(["/userTicketsSED"]);
+  }
+
+  kontrolaKarte(){
+    this.router.navigate(["/ticketControl"]);    
+  }
 }

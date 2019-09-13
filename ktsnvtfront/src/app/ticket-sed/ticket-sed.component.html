@@ -5,18 +5,18 @@
             <table class="table table-bordered table-hover table-dark">
                 <thead>
                     <tr>
-                        <!--<th *ngIf="rentaCarAdmin">ID</th> -->
-                        <th>ID </th>
+                        <th>ID Karte</th>
                         <th>Tip karte</th>
+                        <th>Vazi Od</th>
                         <th>Vazi Do</th>
                         <th>Aktivirana</th>
+                        <th>Vlasnik ID</th>
                         <th style="width: 15%">Action</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     <tr *ngFor="let ticket of tickets; let i = index">
-                        <!-- <td *ngIf="rentaCarAdmin"> -->
                         <td>
                             {{ticket.id}}.
                         </td>
@@ -24,10 +24,16 @@
                             {{ticket.tip}}
                         </td>
                         <td>
-                            {{ticket.vaziDo | date}}
+                            {{ticket.vaziDo | date: "medium"}}
+                        </td>
+                        <td>
+                            {{ticket.vaziOd | date: "medium"}}
                         </td>
                         <td>
                             {{ticket.aktivirana}}
+                        </td>
+                        <td>
+                            {{ticket.vlasnik}}
                         </td>
                         <td>
                             <button (click)='deleteTicket(ticket.id)' type="button" class="btn btn-danger">Delete</button>
@@ -40,8 +46,5 @@
             <div class="clearfix">
             </div>
         </div>
-
     </div>
-
-
 </body>

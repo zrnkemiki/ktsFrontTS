@@ -30,19 +30,19 @@ export class AddTicketComponent implements OnInit {
 
   addTicket() {
     if (this.router.url !== "/add-ticket") {
-      this.ticketService.editTicket(this.ticket);
+      this.ticketService.activateTicket(this.ticket);
     }
     else {
       this.ticketService.addTicket(this.ticket);
     }
     this.router.navigate(["/homepage"]);
   }
-
+  
   getEditTicket() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.ticketService.getTicket(id).subscribe(ticket => this.ticket = ticket);
   }
-
+  
   returnHome() {
     this.router.navigate(["/homepage"]);
   }

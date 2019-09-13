@@ -27,6 +27,7 @@ import { TicketSedComponent} from './ticket-sed/ticket-sed.component'
 import { UserListComponent } from './user-list/user-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UploadComponent } from './upload/upload.component';
+import { TicketControlComponent } from './ticket-control/ticket-control.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { UploadComponent } from './upload/upload.component';
     UserProfileComponent,
     LineSEDComponent,
     TicketSedComponent,
-    UploadComponent
+    UploadComponent,
+    TicketControlComponent
   ],
   imports: [
     BrowserModule,
