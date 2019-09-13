@@ -13,6 +13,7 @@ import { LoginService } from '../services/login.service';
 export class DepartureSEDComponent implements OnInit {
 
   public departures: Departure[];
+  
   private currentUserEmail: string;
   private currentUserUsername: string;
   private currentUserType: string;
@@ -20,7 +21,6 @@ export class DepartureSEDComponent implements OnInit {
   private applicationAdministrator: string;
   private applicationEmployee: string;
   private registeredUser: string;
-
 
   constructor(private router: Router, private departureService: DepartureService, private loginService: LoginService) { }
 

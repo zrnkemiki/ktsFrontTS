@@ -12,9 +12,9 @@
                                 <select name="dan" class="form-control" [(ngModel)]="this.ticket.tip" required>
                                     <option value="jednokratna" selected>Jednokratna</option>
                                         <option value="dnevna">Dnevna</option>
-                                        <option value="mesecna">Mesečna</option>
-                                        <option value="mesecnaskolska">Mesečna školska</option>
-                                        <option value="mesecnapenzionerska">Mesečna penzionerska</option>
+                                        <option value="mesecna" *ngIf="!applicationStudent && !applicationPensionary">Mesečna</option>
+                                        <option value="mesecnaskolska" *ngIf="applicationStudent">Mesečna školska</option>
+                                        <option value="mesecnapenzionerska" *ngIf="applicationPensionary">Mesečna penzionerska</option>
                                 </select>
                             </div>
                             <div *ngIf="router.url !== '/add-ticket'" class="form-group" id="input">

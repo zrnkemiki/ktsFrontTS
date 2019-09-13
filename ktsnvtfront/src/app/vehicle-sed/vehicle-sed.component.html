@@ -1,12 +1,10 @@
 <body>
     <div class="container">
         <div class="table-wrapper">
-            <div class="table-title"></div>
             <table class="table table-bordered table-hover table-dark">
                 <thead>
                     <tr>
                         <th>ID vozila</th>
-                        <th>ID trenutnog stajališta</th>
                         <th>ID linije</th>
                         <th>Tip vozila</th>
                         <th style="width: 15%">Akcije</th>
@@ -17,9 +15,6 @@
                     <tr *ngFor="let vehicle of vehicles; let i = index">
                         <td>
                             {{vehicle.id}}.
-                        </td>
-                        <td>
-                            {{vehicle.idTrenutnoStajaliste}}
                         </td>
                         <td>
                             {{vehicle.linijaString}}

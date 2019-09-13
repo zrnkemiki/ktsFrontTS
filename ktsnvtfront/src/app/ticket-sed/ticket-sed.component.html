@@ -11,7 +11,7 @@
                         <th>Aktivirana</th>
                         <th>Vlasnik ID</th>
                         <th>Cena</th>
-                        <th style="width: 15%">Action</th>
+                        <th style="width: 15%">Akcije</th>
                     </tr>
                 </thead>
 
@@ -39,8 +39,8 @@
                             {{ticket.vlasnik}}
                         </td>
                         <td>
-                            <button (click)='deleteTicket(ticket.id)' type="button" class="btn btn-danger">Delete</button>
-                            <button type="button" (click)='activateTicket(ticket.id)' class="btn btn-warning">Activate</button>
+                            <button (click)='deleteTicket(ticket.id)' type="button" class="btn btn-danger">Obriši</button>
+                            <button type="button" (click)='activateTicket(ticket.id)' class="btn btn-warning">Aktiviraj</button>
                         </td>
                     </tr>
                 </tbody>

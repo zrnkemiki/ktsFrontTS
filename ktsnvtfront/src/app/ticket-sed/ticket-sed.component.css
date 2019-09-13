@@ -1,14 +1,13 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #17a2b8;
+    background-color: #203535;
     height: 100vh;
 }
 
 .table-wrapper {
-    background: #17a2b8;
+    background: #203535;
     padding: 20px 25px;
-    margin: 30px 0;
     border-radius: 3px;
 }
 
