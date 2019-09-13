@@ -28,6 +28,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UploadComponent } from './upload/upload.component';
 import { TicketControlComponent } from './ticket-control/ticket-control.component';
+import {FileUploadModule} from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { TicketControlComponent } from './ticket-control/ticket-control.componen
     HttpClientModule,    
     FormsModule,
     BrowserAnimationsModule,
+    FileUploadModule,
     ToastrModule.forRoot({preventDuplicates: true})
   ],
   providers: [

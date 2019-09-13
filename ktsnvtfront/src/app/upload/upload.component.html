@@ -1,18 +1,10 @@
-<form class="form" action="" method="post" enctype="multipart/form-data">
-    <div class="form-group">
-        <label for="userDocument" class="text-info">Dokument:</label><br>
-        <input type="file" name="filename" (change)="fileProgress($event)">
-        <div *ngIf="fileUploadProgress">
-            Učitavanje: {{ fileUploadProgress }}
-        </div>
-        <div class="image-preview mb-3" *ngIf="previewUrl">
-            <img [src]="previewUrl" height="300" />                 
-        </div>
-        <div class="mb-3" *ngIf="uploadedFilePath">
-            {{uploadedFilePath}}
-        </div>
+<h1>Roufid File upload tutorial</h1>
+
+<div>
+    <input #fileInput type="file" ng2FileSelect [uploader]="uploader" />
+
+    <div class="drop-box" ng2FileDrop [ngClass]="{'dragover': isDropOver}" [uploader]="uploader" (fileOver)="fileOverAnother($event)" (click)="fileClicked()">
+        <span class="drag-in-title">Import or drag file here</span>
+        <span class="drag-over-title">Drop the file</span>
     </div>
-    <div *ngIf="fileData" class="form-group">
-        <button type="submit" (click)="onSubmit()" class="btn btn-success">Pošalji</button>
-    </div>
-</form>
+</div>
