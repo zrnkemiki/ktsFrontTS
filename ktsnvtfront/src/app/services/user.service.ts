@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user';
 import { BehaviorSubject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 
 @Injectable({
@@ -46,6 +46,15 @@ export class UserService {
       )
   }
 
+  uploadDocument(formData: FormData, username) {
+    console.log(formData.get('files'));
+    return this.http.post(this.userUrl + "/document/" + username, formData, {
+      headers: {'Content-Type': 'multipart/form-data'},
+      reportProgress: true,
+      observe: 'events'
+    });
+  }
+
   editUser(user: User) {
     this.http.put<User>(this.userUrl, user)
       .subscribe(
@@ -64,7 +73,6 @@ export class UserService {
     this.http.post<User>("http://localhost:8080/api/user/addEmployee", user)
       .subscribe(
         addedUser => {
-          console.log(addedUser);
           this.users.push(addedUser);
           this.userSource.next(this.users);
           alert("Succesfully added employee" + user.username + "now.");
@@ -76,7 +84,6 @@ export class UserService {
     this.http.post<User>(this.userUrl, user)
       .subscribe(
         addedUser => {
-          console.log(addedUser);
           this.users.push(addedUser);
           this.userSource.next(this.users);
           alert("Succesfully added user" + user.username + "now.");
