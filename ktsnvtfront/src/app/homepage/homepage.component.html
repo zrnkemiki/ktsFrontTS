@@ -30,7 +30,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <button type="button" class="btn btn-primary">Red vožnje</button>
+                    <button type="button" (click)="redVoznje()" class="btn btn-primary">Red vožnje</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="dodajVozilo()" class="btn btn-primary">Dodaj vozilo</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="svaVozila()" class="btn btn-primary">Sva vozila</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="dodajStajaliste()" class="btn btn-primary">Dodaj stajalište</button>
@@ -38,6 +38,7 @@
                     <button type="button" *ngIf="applicationEmployee" (click)="dodajPolazak()" class="btn btn-primary">Dodaj polazak</button>
                     <button type="button" (click)="sviPolasci()" class="btn btn-primary">Svi polasci</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="dodajLiniju()" class="btn btn-primary">Dodaj liniju</button>
+                    <button type="button" *ngIf="applicationEmployee" (click)="sveLinije()" class="btn btn-primary">Sve linije</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="sviKorisnici()" class="btn btn-primary">Korisnici</button>
                     <button type="button" *ngIf="applicationEmployee" (click)="dodajCenovnik()" class="btn btn-primary">Dodaj cenovnik</button>
                     <button type="button" (click)="sviCenovnici()" class="btn btn-primary"> Cenovnici</button>
