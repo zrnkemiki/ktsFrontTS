@@ -1,4 +1,18 @@
-<div class="form-group">
-    <label for="file">Choose File</label>
-    <input type="file" id="file" (change)="handleFileInput($event.target.files)">
-</div>
+<form class="form" action="" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="userDocument" class="text-info">Dokument:</label><br>
+        <input type="file" name="filename" (change)="fileProgress($event)">
+        <div *ngIf="fileUploadProgress">
+            Učitavanje: {{ fileUploadProgress }}
+        </div>
+        <div class="image-preview mb-3" *ngIf="previewUrl">
+            <img [src]="previewUrl" height="300" />                 
+        </div>
+        <div class="mb-3" *ngIf="uploadedFilePath">
+            {{uploadedFilePath}}
+        </div>
+    </div>
+    <div *ngIf="fileData" class="form-group">
+        <button type="submit" (click)="onSubmit()" class="btn btn-success">Pošalji</button>
+    </div>
+</form>

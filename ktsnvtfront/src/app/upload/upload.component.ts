@@ -1,6 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FileUploader } from 'ng2-file-upload';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { User } from '../model/user';
+import { ActivatedRoute } from '@angular/router'
+import { UserService } from '../services/user.service';
+import { LoginService } from '../services/login.service';
+import { HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-upload',
@@ -9,38 +12,58 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UploadComponent implements OnInit {
 
-  fileToUpload: File = null;
-  fileName: string;
+  public user: User;
+  private currentUserType: string;
+  private fileData: File = null;
+  private previewUrl:any = null;
+  private fileUploadProgress: string = null;
 
+  constructor(private userService: UserService, private loginService: LoginService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-
+    const username = this.route.snapshot.paramMap.get('username');
+    this.userService.getUser(username).subscribe(user => this.user = user);
+    if (localStorage.getItem('currentUser') != null) {
+      const currentUser: any = this.loginService.currentUserValue;
+      this.currentUserType = currentUser.userType;
+    }
   }
 
-  constructor(private http: HttpClient) {
-
-  }
-  handleFileInput(files: FileList) {
-    var formData = new FormData();
-    this.fileToUpload = files.item(0)
-    this.fileName = this.fileToUpload.name;
-    formData.append('documentName', this.fileName);
-    formData.append('file', this.fileToUpload);
-    debugger;
-    this.uploadFile(formData);  
-    debugger; 
+  fileProgress(fileInput: any) {
+    this.fileData = <File>fileInput.target.files[0];
+    this.preview();
   }
 
-  uploadFile(formData: FormData){
-    console.log(formData.append);
-    return this.http.post<void>("http://localhost:8080/api/file/addImage" , formData)
-    .subscribe(
-      response => {
-        alert("Successfully added vehicle. New  vehicle added.");
-      }
-    )
+  preview() { 
+    var mimeType = this.fileData.type;
+    if (mimeType.match(/image\/*/) == null) {
+      return;
+    }
+    var reader = new FileReader();      
+    reader.readAsDataURL(this.fileData); 
+    reader.onload = (_event) => { 
+      this.previewUrl = reader.result; 
+    }
   }
 
-
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('files', this.fileData);
+    this.fileUploadProgress = '0%';
+ 
+    this.userService.uploadDocument(formData, this.user.username)
+      .subscribe(
+        events => {
+          if (events.type === HttpEventType.UploadProgress) {
+            this.fileUploadProgress = Math.round(events.loaded / events.total * 100) + '%';
+            console.log(this.fileUploadProgress);
+          } else if (events.type === HttpEventType.Response) {
+            this.fileUploadProgress = '';
+            console.log(events.body);          
+            alert("Dokument sačuvan");
+          }  
+        }
+      ) 
+  }
 
 }
