@@ -19,18 +19,18 @@
 
                                 <div class="form-group">
                                     <label for="stajalista" class="text-info">Stajališta:</label><br>
-                                    <select name="stajalista" class="form-control" *ngFor="let field of stopsFields.fields; let i = index; trackBy: i" [(ngModel)]="this.stopsFields.fields[i]" required>
-                                        <option *ngFor="let stop of this.stops" value="{{stop.id}}">{{stop.naziv}}</option>
+                                    <select name="stajalista" class="form-control" *ngFor="let field of stopsFields; let i = index" [id]="'stop'+i" required>
+                                        <option *ngFor="let stop of stops" value="{{stop.id}}" [selected]="stop.id===this.line.stajalista[i].id">{{stop.naziv}}</option>
                                     </select>
-                                    <button (click)="addStopField()" class="btn btn-success">+</button>
+                                    <button id="plus" (click)="addStopField()" class="btn btn-success">+</button>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="polasci" class="text-info">Polasci:</label><br>
-                                    <select name="polasci" class="form-control" *ngFor="let field of departuresFields.fields; let i = index; trackBy: i" [(ngModel)]="this.departuresFields.fields[i]" required>
-                                        <option *ngFor="let departure of this.departures" value="{{departure.id}}">{{departure.vreme}} {{departure.dan}}</option>
+                                    <select name="polasci" class="form-control" *ngFor="let field of departuresFields; let i = index" [id]="'departure'+i" required>
+                                        <option *ngFor="let departure of departures" value="{{departure.id}}" [selected]="departure.id===this.line.polasci[i].id">{{departure.vreme}} {{departure.dan}}</option>
                                     </select>
-                                    <button (click)="addDepartureField()" class="btn btn-success">+</button>
+                                    <button id="plus" (click)="addDepartureField()" class="btn btn-success">+</button>
                                 </div>
     
                                 <div class="form-group">

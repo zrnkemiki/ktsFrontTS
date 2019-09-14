@@ -18,12 +18,10 @@ import { Departure } from '../model/departure';
 export class AddLineComponent implements OnInit {
 
   public line: Line;
-  public stop: Stop;
-  public departure: Departure;
-  public stopsFields = { fields: Array<Stop>() };
-  public departuresFields = { fields: Array<Departure>() };
   public stops = Array<Stop>();
+  public stopsFields = Array<Number>();
   public departures = Array<Departure>();
+  public departuresFields = Array<Number>();
 
   constructor(private lineService: LineService, private departureService: DepartureService, private stopService: StopService, 
       private toastr: ToastrService, private router: Router, private route: ActivatedRoute) { 
@@ -35,8 +33,10 @@ export class AddLineComponent implements OnInit {
     if (this.router.url != "/add-line") {
       this.getEditLine();
     } else {
-      this.stopsFields.fields.push({ id: "", naziv: "", lokacijaX: "", lokacijaY: "", adresa: "" });
-      this.departuresFields.fields.push({ id: "", dan: "", vreme: "" });
+      this.line.stajalista.push({ id: "", naziv: "", lokacijaX: "", lokacijaY: "", adresa: "" });
+      this.line.polasci.push({ id: "", dan: "Radni dan", vreme: "" });
+      this.stopsFields.push(1);
+      this.departuresFields.push(1);
     }
   }
 
@@ -49,10 +49,10 @@ export class AddLineComponent implements OnInit {
     this.lineService.getLine(id).subscribe(line => {
       this.line = line;
       this.line.stajalista.forEach(stop => {
-        this.stopsFields.fields.push(stop);
+        this.stopsFields.push(+stop.id);
       });
       this.line.polasci.forEach(departure => {
-        this.departuresFields.fields.push(departure);
+        this.departuresFields.push(+departure.id);
       });
     });
   }
@@ -64,52 +64,33 @@ export class AddLineComponent implements OnInit {
 
   addLine() {
     if (this.line.broj !== '' && this.line.naziv !== '' && this.line.stajalista !== [] && this.line.polasci !== [] && this.line.tip !== '') {
-      if (this.router.url != "/add-line") {
-        this.stopService.findAll();
-        this.departureService.findAll();
-        let temp = {"stops": [], "departures": []};
-        this.stopsFields.fields.forEach(stopID => {
-          this.stopService.getStop(stopID).subscribe(currentStop => { 
-            this.stop = currentStop;
-            temp.stops.push(this.stop);
-          });
+      this.stopService.findAll();
+      this.departureService.findAll();
+      let temp = {"stops": [], "departures": []};
+
+      this.stopsFields.forEach( (stopID, index) => {
+        let id = (<HTMLSelectElement>document.getElementById('stop'+index)).value;
+        this.stopService.getStop(id).subscribe(currentStop => {
+          temp.stops.push(currentStop);
         });
-        this.departuresFields.fields.forEach(departureID => {
-          this.departureService.getDeparture(departureID).subscribe(currentDeparture => { 
-            this.departure = currentDeparture;
-            temp.departures.push(this.departure);
-          });
+      });
+      this.departuresFields.forEach( (departureID, index) => {
+        let id = (<HTMLSelectElement>document.getElementById('departure'+index)).value;
+        this.departureService.getDeparture(id).subscribe(currentDeparture => {
+          temp.departures.push(currentDeparture);
         });
-        setTimeout(() => {
-          this.line.stajalista = temp.stops;
-          this.line.polasci = temp.departures;
+      });
+
+      setTimeout(() => {
+        this.line.stajalista = temp.stops;
+        this.line.polasci = temp.departures;
+        if (this.router.url != "/add-line") {
           this.lineService.editLine(this.line);
-        }, 500);
-      }
-      else {
-        this.stopService.findAll();
-        this.departureService.findAll();
-        let temp = {"stops": [], "departures": []};
-        this.stopsFields.fields.forEach(stopID => {
-          this.stopService.getStop(stopID).subscribe(currentStop => { 
-            this.stop = currentStop;
-            temp.stops.push(this.stop);
-          });
-        });
-        this.departuresFields.fields.forEach(departureID => {
-          this.departureService.getDeparture(departureID).subscribe(currentDeparture => { 
-            this.departure = currentDeparture;
-            temp.departures.push(this.departure);
-          });
-        });
-        setTimeout(() => {
-          this.line.stajalista = temp.stops;
-          this.line.polasci = temp.departures;
+        } else {
           this.lineService.addLine(this.line);
-        }, 500);
-      }
-      console.log(this.line);
-      this.router.navigate(["/homepage"]);
+        }
+        this.router.navigate(["/homepage"]);
+      }, 500);
     }
     else {
       this.toastr.error('Morate popuniti sva polja!');
@@ -127,11 +108,13 @@ export class AddLineComponent implements OnInit {
   }
 
   addStopField() {
-    this.stopsFields.fields.push({ id: "", naziv: "", lokacijaX: "", lokacijaY: "", adresa: "" });
+    this.line.stajalista.push({ id: "", naziv: "", lokacijaX: "", lokacijaY: "", adresa: "" });
+    this.stopsFields.push(1);
   }
 
   addDepartureField() {
-    this.departuresFields.fields.push({ id: "", dan: "", vreme: "" });
+    this.line.polasci.push({ id: "", dan: "Radni dan", vreme: "" });
+    this.departuresFields.push(1);
   }
 
   returnHome() {

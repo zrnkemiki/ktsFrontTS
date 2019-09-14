@@ -36,6 +36,10 @@ h3 {
     text-align: center;
 }
 
+#plus {
+    margin-top: 10px;
+}
+
 button {
     margin-right: 20px;
 }
